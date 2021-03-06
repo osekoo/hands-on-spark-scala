@@ -145,7 +145,8 @@ Pour ce faire:
 
 ![image](https://user-images.githubusercontent.com/49156499/110215198-c6cf1e00-7ea8-11eb-8a3f-31df0a40b04b.png)
 
-
+Maintenant que le projet est mis en place, copiez le contenu de ce [fichier](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/src/main/scala/WordCount.scala) dans `WordCount.scala`.  
+Ce code télécharge le contenu du fichier Ulysses.txt et compte le nombre d'occurrences de chaque mot...  
 
 ### Compilation
 
