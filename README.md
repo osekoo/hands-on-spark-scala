@@ -11,12 +11,13 @@ L'objectif de cette session pratique est:
 
 ### IntelliJ
 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) est un [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) permettant de développer des logiciels dans plusieurs langages notamment Java et Scala.  
-Nous allons l'utiliser lors de cette session pratique car il intègre plusieurs outils qui facilitent le développement des applications en Sacala.  
+Nous allons l'utiliser lors de cette session pratique car il intègre plusieurs outils qui facilitent le développement des applications en Scala.  
 
 #### Installation
 Veuillez télécharger IntelliJ [ici](https://www.jetbrains.com/idea/download/). Installez-le sur votre machine.
 
 #### Configuration
+Nous allons configurer IntelliJ avec les versions de Scala et SBT.
 1. Scala
 
 2. SBT
