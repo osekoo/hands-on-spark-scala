@@ -34,11 +34,11 @@ Dans cette session, nous allons utiliser [Spark 3.0.2](https://spark.apache.org/
 ![image](https://user-images.githubusercontent.com/49156499/110211898-08f06380-7e99-11eb-9aed-22566cd25788.png)
 - redémarrez IntelliJ
 
-2. SBT (1.x)
-On installe SBT en suivant les mêmes étapes que ci-dessus
+2. SBT (1.x)  
+Installez SBT en suivant les mêmes étapes que ci-dessus
 ![image](https://user-images.githubusercontent.com/49156499/110212000-916f0400-7e99-11eb-9e24-680b14bbbfc0.png)
 
-3. Java (1.8)
+3. Java (1.8)  
 A voir plus tard.
 
 ### Docker
