@@ -22,8 +22,7 @@ sudo snap install intellij-idea-community --classic
 Note: votre compte étudiant de Dauphine vous donne accès gratuitement à la version `Ultimate`. Pour cela, il suffit de vous [enregistrer](https://account.jetbrains.com/login) avec votre adresse mail de Dauphine et de valider l'inscription.  
   
 Nous allons maintenant configurer `IntelliJ` avec les versions de Spark, Java, Scala et SBT qui sont compatibles entre elles.  
-Il y a une relation très forte entre les versions de ces langages, frameworks et outils.  
-`Spark ==> Scala ==> (Java, SBT)`
+Il y a une relation très forte entre les versions de ces langages/frameworks/outils: `Spark ==> Scala ==> (Java, SBT)`.  
 e.g: `Spark 3.0.2 ==> Scala 2.12.x ==> (Java 8, SBT 1.x)`
   
 Dans cette session, nous allons utiliser Spark 3.0.2.  
