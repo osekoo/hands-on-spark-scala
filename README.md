@@ -2,9 +2,9 @@
 
 ## Objectifs
 L'objectif de cette session pratique est:
-- d'implémenter un mini-projet Spark en [Scala](https://www.scala-lang.org/) en utilisant [IntelliJ](https://www.jetbrains.com/idea/),
+- d'implémenter un mini-projet [Spark](https://spark.apache.org/) en [Scala](https://www.scala-lang.org/) en utilisant [IntelliJ](https://www.jetbrains.com/idea/),
 - de tester et débugger l'application en utilisant l'utilitaire [SBT](https://www.scala-sbt.org/),
-- de lancer un cluster [Spark](https://spark.apache.org/) sur une machine locale,
+- de lancer un cluster Spark sur une machine locale,
 - de packager l'application et l'exécuter sur le cluster local Spark.
 
 ## Les prériquis (à faire avant la session)
