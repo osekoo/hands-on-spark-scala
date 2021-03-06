@@ -3,16 +3,22 @@
 ## Objectifs
 L'objectif de cette session pratique est:
 - d'implémenter un mini-projet [Spark](https://spark.apache.org/) en [Scala](https://www.scala-lang.org/) en utilisant [IntelliJ](https://www.jetbrains.com/idea/),
-- de tester et débugger l'application en utilisant l'utilitaire [SBT](https://www.scala-sbt.org/),
+- de compilet/tester/débugger l'application en utilisant l'utilitaire [SBT](https://www.scala-sbt.org/),
 - de lancer un cluster Spark sur une machine locale,
 - de packager l'application et l'exécuter sur le cluster local Spark.
 
 ## Les prériquis (à faire avant la session)
 
 ### IntelliJ
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) est un IDE permettant de développer des logiciels dans plusieurs langages notamment Java et Scala.  
+Nous allons l'utiliser lors de cette session pratique car il intègre plusieurs outilis qui facilitent le développement des applications en Sacala.  
+
 #### Installation
+Veuillez télécharger IntelliJ [ici](https://www.jetbrains.com/idea/download/). Installez-le sur votre machine.
+
 #### Configuration
 1. Scala
+
 2. SBT
 
 ### Docker
