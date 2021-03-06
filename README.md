@@ -7,11 +7,11 @@ L'objectif de cette session pratique est:
 - de lancer un cluster Spark sur une machine locale,
 - de packager l'application et l'exécuter sur le cluster local Spark.
 
-## Les prériquis (à faire avant la session)
+## Les prérequis (à faire avant la session)
 
 ### IntelliJ
 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) est un IDE permettant de développer des logiciels dans plusieurs langages notamment Java et Scala.  
-Nous allons l'utiliser lors de cette session pratique car il intègre plusieurs outilis qui facilitent le développement des applications en Sacala.  
+Nous allons l'utiliser lors de cette session pratique car il intègre plusieurs outils qui facilitent le développement des applications en Sacala.  
 
 #### Installation
 Veuillez télécharger IntelliJ [ici](https://www.jetbrains.com/idea/download/). Installez-le sur votre machine.
@@ -36,7 +36,7 @@ Pour les utilisateus de Linux, vous avez besoin d'installer [docker-compose](htt
 
 ### Compiler l'application
 
-### Tester et débugger l'application
+### Tester et déboguer l'application
 
 ### Lancer le cluster spark
 Télécharger le fichier docker-compose.yaml (https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/main/spark/docker-compose.yaml). Il se trouve également dans le repo /spark.  
@@ -50,7 +50,7 @@ Pour augmenter le nombre de worker, il suffit de lancer la commande suivante:
 ```
 docker-compose up --scale spark-worker=5
 ```
-où 5 correspond on nombre de workers que vous souhaitez lancer. Vous pouvez varier ce nombre et voir l'impact sur http://localhost:8080/  
+où `5` correspond au nombre de workers que vous souhaitez lancer. Vous pouvez varier ce nombre et voir l'impact sur http://localhost:8080/  
 
 
 ### Packager et déployer l'application
