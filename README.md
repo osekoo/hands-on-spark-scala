@@ -81,8 +81,8 @@ Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.di
 
 1. Configuration
 
-- Ouvrez le fichier `build.sbt` qui se trouve dans le panel de gauche. Il doit contenir 3 lignes:
-```
+- Ouvrez le fichier `build.sbt` qui se trouve dans le panel de gauche. Il doit contenir 3 lignes:  
+```(scala)
 name := "get-started" // le nom de votre projet
 version := "0.1" // la version de votre application
 scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
@@ -98,19 +98,17 @@ scalaVersion := "2.12.13" // la version de Scala (l'information la plus importan
 - Pour récupérer la bonne version d'un framework/module
     - allez sur le dépôt du framework et cliquez sur la version désirée (dans notre cas 3.0.2),
 ![image](https://user-images.githubusercontent.com/49156499/110213736-98017980-7ea1-11eb-89a4-363f1c294a66.png)
-
     - ensuite cliquez sur l'onglet `SBT` et copier le contenu de la zone de texte  
 ![image](https://user-images.githubusercontent.com/49156499/110213775-c1220a00-7ea1-11eb-88f8-4659443081d5.png)
-
     - collez ce contenu dans le fichier `build.sbt` comme indiqué ci-dessous  
-```
+```(scala)
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "3.0.2"
 )
 ```
-
+¨  
     - au final, votre fichier `build.sbt` doit ressembler à ceci:   
-```
+```(scala)
 name := "get-started" // le nom de votre projet
 version := "0.1" // la version de votre application
 scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
@@ -121,7 +119,6 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-mllib" % "3.0.2" % "provided"
 )
 ```
-
 
 ### Compilation
 
