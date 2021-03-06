@@ -53,4 +53,4 @@ docker-compose up --scale spark-worker=5
 où 5 correspond on nombre de workers que vous souhaitez lancer. Vous pouvez varier ce nombre et voir l'impact sur http://localhost:8080/  
 
 
-### Packger et déployer l'application
+### Packager et déployer l'application
