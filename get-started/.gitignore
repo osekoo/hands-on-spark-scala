@@ -1,0 +1,8 @@
+*.class
+*.log
+/tokens.csv/
+/tokens.parquet/
+/target/
+/project/
+/.bsp/
+/.idea/
