@@ -1,5 +1,10 @@
 # Spark et Scala: Session Pratique
 
+## Sommaire
+1. [Objectifs](#objectifs)
+2. [Prérequis](#prérequis)
+3. [Lab Session](#lab-session)
+
 ## Objectifs
 L'objectif de cette session pratique est:
 - d'implémenter un mini-projet [Apache Spark](https://spark.apache.org/) en [Scala](https://www.scala-lang.org/) en utilisant [IntelliJ](https://www.jetbrains.com/idea/),
@@ -7,7 +12,8 @@ L'objectif de cette session pratique est:
 - de lancer un cluster Spark sur une machine locale,
 - de packager l'application et l'exécuter sur le cluster local Spark.
 
-## Les prérequis (à faire avant la session)
+## Prérequis
+_à faire avant la session_
 
 ### Installation et configuration d'`IntelliJ`
 [`IntelliJ IDEA`](https://www.jetbrains.com/idea/download/) est un [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) permettant de développer des logiciels dans plusieurs langages notamment `Java` et `Scala`.  
@@ -106,8 +112,9 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "3.0.2"
 )
 ```
-¨  
-    - au final, votre fichier `build.sbt` doit ressembler à ceci:   
+   
+Au final, votre fichier `build.sbt` doit ressembler à ceci:   
+
 ```(scala)
 name := "get-started" // le nom de votre projet
 version := "0.1" // la version de votre application
@@ -119,6 +126,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-mllib" % "3.0.2" % "provided"
 )
 ```
+
+### Le programme
 
 ### Compilation
 
