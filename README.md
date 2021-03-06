@@ -57,10 +57,13 @@ Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.di
 
 ### Mise en route
 1. Démarrez IntelliJ,
+
 2. cliquez sur `New Project`
 ![image](https://user-images.githubusercontent.com/49156499/110211719-2cff7500-7e98-11eb-8902-3225c7a02c7f.png)
+
 3. sélectionnez `Scala` (dans le panel de à gauche) et `sbt` (dans celui de droite)
 ![image](https://user-images.githubusercontent.com/49156499/110212124-31c52880-7e9a-11eb-87f9-a57268f5fb71.png)
+
 4. à l'étape suivante:
 - donnez un nom à votre projet (`get-started`)
 - sélectionnez la version 1.8 de `JDK` si elle est installée sinon déroulez la liste et cliquez sur `Download JDK` (comme indiquer ci-dessous)
@@ -68,37 +71,45 @@ Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.di
 - sélectionnez une version 1.x de SBT (e.g 1.4.7)
 - sélectionnez la version 2.12.13 de Scala et cochez la case `Sources`
 ![image](https://user-images.githubusercontent.com/49156499/110212481-d136eb00-7e9b-11eb-979f-8ef8bd566393.png)
+
 5. cliquez sur `Finish`
+
 6. vous devez obtenir une structure identique à celle de la figure ci-dessous
 ![image](https://user-images.githubusercontent.com/49156499/110212536-0d6a4b80-7e9c-11eb-8bc3-0aa92a88f037.png)
 
 ### Implémentation
+
 1. Configuration
+
 - Ouvrez le fichier `build.sbt` qui se trouve dans le panel de gauche. Il doit contenir 3 lignes:
 ```
 name := "get-started" // le nom de votre projet
 version := "0.1" // la version de votre application
 scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
 ```
+
 - Nous allons compléter ce fichier avec les dépendances de Spark (version 3.0.2) qui se trouvent dans le [dépot Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépot contient tous les modules et frameworks Spark
+
 - Pour notre use-case, nous allons utiliser les frameworks suivants:
--- [`Spark Core`](https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.12/3.0.2) la libraire de base de Spark,
--- [`Spark SQL`](https://mvnrepository.com/artifact/org.apache.spark/spark-sql_2.12/3.0.2) pour les requêtes SQL,
--- [`Spark MLlib`](https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.12/3.0.2) pour le machine learning
-- Pour récupérer la bonne version
--- allez sur le dépôt du framework et cliquez sur la version désirée (dans notre 3.0.2),
+    - [`Spark Core`](https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.12/3.0.2) la libraire de base de Spark,
+    - [`Spark SQL`](https://mvnrepository.com/artifact/org.apache.spark/spark-sql_2.12/3.0.2) pour les requêtes SQL,
+    - [`Spark MLlib`](https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.12/3.0.2) pour le machine learning
+
+- Pour récupérer la bonne version d'un framework/module
+    - allez sur le dépôt du framework et cliquez sur la version désirée (dans notre cas 3.0.2),
 ![image](https://user-images.githubusercontent.com/49156499/110213736-98017980-7ea1-11eb-89a4-363f1c294a66.png)
 
--- ensuite cliquez sur l'onglet SBT et copier le contenu de la zone de texte
+    - ensuite cliquez sur l'onglet `SBT` et copier le contenu de la zone de texte  
 ![image](https://user-images.githubusercontent.com/49156499/110213775-c1220a00-7ea1-11eb-88f8-4659443081d5.png)
 
--- collez ce contenu dans le fichier `build.sbt` comme indiqué ci-dessous
+    - collez ce contenu dans le fichier `build.sbt` comme indiqué ci-dessous  
 ```
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "3.0.2"
 )
 ```
--- au final, votre fichier `build.sbt` doit ressembler à ceci:
+
+    - au final, votre fichier `build.sbt` doit ressembler à ceci:   
 ```
 name := "get-started" // le nom de votre projet
 version := "0.1" // la version de votre application
