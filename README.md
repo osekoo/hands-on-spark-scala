@@ -83,9 +83,7 @@ Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.di
 6. vous devez obtenir une structure identique à celle de la figure ci-dessous
 ![image](https://user-images.githubusercontent.com/49156499/110212536-0d6a4b80-7e9c-11eb-8bc3-0aa92a88f037.png)
 
-### Implémentation
-
-1. Configuration
+### Configuration
 
 - Ouvrez le fichier `build.sbt` qui se trouve dans le panel de gauche. Il doit contenir 3 lignes:  
 ```(scala)
@@ -127,7 +125,7 @@ libraryDependencies ++= Seq(
 )
 ```
 
-### Le programme
+### Implémentation
 
 ### Compilation
 
