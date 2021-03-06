@@ -3,7 +3,7 @@
 ## Objectifs
 L'objectif de cette session pratique est:
 - d'implémenter un mini-projet [Spark](https://spark.apache.org/) en [Scala](https://www.scala-lang.org/) en utilisant [IntelliJ](https://www.jetbrains.com/idea/),
-- de compilet/tester/débugger l'application en utilisant l'utilitaire [SBT](https://www.scala-sbt.org/),
+- de compiler/tester/débugger l'application en utilisant l'utilitaire [SBT](https://www.scala-sbt.org/),
 - de lancer un cluster Spark sur une machine locale,
 - de packager l'application et l'exécuter sur le cluster local Spark.
 
@@ -36,7 +36,7 @@ Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.di
 
 ### Compiler l'application
 
-### Tester et déboguer l'application
+### Tester et débugger l'application
 
 ### Lancer le cluster spark
 Télécharger le fichier docker-compose.yaml (https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/main/spark/docker-compose.yaml). Il se trouve également dans le repo /spark.  
