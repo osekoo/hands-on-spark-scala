@@ -9,16 +9,28 @@ L'objectif de cette session pratique est:
 
 ## Les prérequis (à faire avant la session)
 
-### Installation et configuration d'IntelliJ
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) est un [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) permettant de développer des logiciels dans plusieurs langages notamment Java et Scala.  
+### Installation et configuration d'`IntelliJ`
+[`IntelliJ IDEA`](https://www.jetbrains.com/idea/download/) est un [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) permettant de développer des logiciels dans plusieurs langages notamment `Java` et `Scala`.  
 Nous allons l'utiliser lors de cette session pratique car il intègre plusieurs outils qui facilitent le développement des applications en Scala.  
   
-Veuillez télécharger IntelliJ [ici](https://www.jetbrains.com/idea/download/). Installez-le sur votre machine.  
+La version `IntelliJ Community` est disponible [ici](https://www.jetbrains.com/idea/download/).  
+Téléchargez et installez la version compatible avec votre machine.  
+Commande spéciale pour `Ubuntu 16.04` ou plus:
+```
+sudo snap install intellij-idea-community --classic
+```
+Note: votre compte étudiant de Dauphine vous donne accès gratuitement à la version `Ultimate`. Pour cela, il suffit de vous [enregistrer](https://account.jetbrains.com/login) avec votre adresse mail de Dauphine et de valider l'inscription.  
   
-Nous allons maintenant configurer IntelliJ avec les versions de Scala et SBT qui sont compatibles.
-1. Scala
+Nous allons maintenant configurer `IntelliJ` avec les versions de Spark, Java, Scala et SBT qui sont compatibles entre elles.  
+Il y a une relation très forte entre les versions de ces langages, frameworks et outils.  
+`Spark ==> Scala ==> (Java, SBT)`
+e.g: `Spark 3.0.2 ==> Scala 2.12.x ==> (Java 8, SBT 1.x)`
+  
+Dans cette session, nous allons utiliser Spark 3.0.2.  
 
-2. SBT
+1. Scala (2.12.x)
+2. Java (1.8)
+3. SBT (1.x)
 
 ### Docker
 Dans cette session, pour des raisons pratiques, nous allons utiliser des [dockers](https://www.docker.com/) ([conteneurs d'applications](https://fr.wikipedia.org/wiki/Docker_\(logiciel\))) pour exécuter nos applications.  
