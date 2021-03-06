@@ -25,7 +25,7 @@ Nous allons maintenant configurer `IntelliJ` avec les versions de Spark, Java, S
 Il y a une relation très forte entre les versions de ces langages/frameworks/outils: `Spark ==> Scala ==> (Java, SBT)`.  
 e.g: `Spark 3.0.2 ==> Scala 2.12.x ==> (Java 8, SBT 1.x)`
   
-Dans cette session, nous allons utiliser Spark 3.0.2.  
+Dans cette session, nous allons utiliser [Spark 3.0.2](https://spark.apache.org/docs/3.0.2/).  
 
 1. Scala (2.12.x)
 2. Java (1.8)
