@@ -124,8 +124,28 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-mllib" % "3.0.2" % "provided"
 )
 ```
+![image](https://user-images.githubusercontent.com/49156499/110214679-02b4b400-7ea6-11eb-9703-16477da0a1d8.png)
+
+Une fois ces dépendances rajoutées, IntelliJ va afficher un pop-up (en bas à gauche) avec 3 options, `Refresh` project, `Enable Auto-Import` et `Ignore`. Cliquez sur `Enable Auto-Import` de telle manière qu'IntelliJ télécharge automatiquement les dépendances à chaque mise-à-jour du fichier `build.sbt`.
+  
+Si toute-fois le pop-up n'a pas été affiché, cliquez sur le panel `sbt` d'IntelliJ et ensuite sur l'icône `reload`
+![image](https://user-images.githubusercontent.com/49156499/110214842-cf265980-7ea6-11eb-9d76-55de4c42f61a.png)
+![image](https://user-images.githubusercontent.com/49156499/110214858-dc434880-7ea6-11eb-8a6b-3b6c75df497c.png)
+  
+IntelliJ affiche une erreur au cas où une dépence n'a pas été trouvée.
+![image](https://user-images.githubusercontent.com/49156499/110214930-3b08c200-7ea7-11eb-91fd-6659ac5785fd.png)
+
 
 ### Implémentation
+Comme exemple, nous allons implémenter le programme `WordCount` en utilisant `Spark SQL`.  
+Pour ce faire:
+- Faites un clique-droit sur le répertoire `src/main/scala`,
+- donnez un nom pour votre fichier (e.g `WordCount`) et cliquez sur `New > Scala Class`
+- et faites un double-clique sur `Object` dans liste.
+
+![image](https://user-images.githubusercontent.com/49156499/110215198-c6cf1e00-7ea8-11eb-8a3f-31df0a40b04b.png)
+
+
 
 ### Compilation
 
