@@ -10,7 +10,7 @@ L'objectif de cette session pratique est:
 ## Les prérequis (à faire avant la session)
 
 ### IntelliJ
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) est un IDE permettant de développer des logiciels dans plusieurs langages notamment Java et Scala.  
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) est un [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) permettant de développer des logiciels dans plusieurs langages notamment Java et Scala.  
 Nous allons l'utiliser lors de cette session pratique car il intègre plusieurs outils qui facilitent le développement des applications en Sacala.  
 
 #### Installation
