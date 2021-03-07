@@ -17,17 +17,18 @@ object WordCount {
   def main(args: Array[String]): Unit = {
     val spark: SparkSession = SparkSession.builder()
       .appName(s"WordCount")
-      .master("local[*]")
+      //.master("spark://d3ac1855a9f3:7077")
+      //.master("local[*]")
       .getOrCreate()
 
-    val filePath = "https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/data/ulysses.txt"
+    val filePath = "ulysses.txt"
 
     logger.info(s"loading text from $filePath ...")
-    val content = Source.fromURL(filePath).mkString.toUpperCase // downloading URL's content
+    val content = Source.fromResource(filePath) // downloading URL's content
     val pattern = "([A-Z]+)".r // Set up words filtering regex
 
     logger.info("tokenizing the input text...")
-    val tokens = pattern.findAllIn(content) // extracting words from the above text
+    val tokens = pattern.findAllIn(content.mkString.toUpperCase) // extracting words from the above text
       .matchData.map(_.group(1)).toSeq
       .zipWithIndex
 
