@@ -1,0 +1,11 @@
+FROM bde2020/spark-scala-template:3.0.2-hadoop3.2
+#FROM bde2020/spark-submit:3.0.2-hadoop3.2
+
+MAINTAINER Kodjo Klouvi <kodjo@osekoo.com>
+
+ENV SBT_VERSION=-1.4.7
+
+ENV SPARK_MASTER_NAME spark
+ENV SPARK_MASTER_PORT 7077
+ENV SPARK_APPLICATION_MAIN_CLASS WordCount
+ENV SPARK_APPLICATION_ARGS ""

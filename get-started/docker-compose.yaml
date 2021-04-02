@@ -1,16 +1,32 @@
-version: '2'
+version: '3.5'
 
 services:
+#  spark-app:
+#    build:
+#      context: ./
+#      dockerfile: ./Dockerfile
+#    container_name: spark-app
+#    image: spark-app
+#    environment:
+#      - ENABLE_INIT_DAEMON=false
+#    command: /template.sh
+
   spark:
     image: docker.io/bitnami/spark:latest
+    container_name: spark
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
+    volumes:
+      - "./target/scala-2.12:/app"
     ports:
       - '8080:8080'
+#    depends_on:
+#      - spark-app
+
   spark-worker:
     image: docker.io/bitnami/spark:latest
     environment:
@@ -24,5 +40,11 @@ services:
       - SPARK_SSL_ENABLED=no
     depends_on:
         - spark
+
+#  spark-submit:
+#    image: docker.io/bde2020/spark-submit
+#    container_name: spark-submit
+#    depends_on:
+#      - spark
 
 # docker-compose up --scale spark-worker=10

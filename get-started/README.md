@@ -1,3 +1,5 @@
+# Spark et Scala: Session Pratique
+
 ## Sommaire
 1. [Objectifs](#objectifs)
 2. [Prérequis](#prérequis)
@@ -55,15 +57,8 @@ Veuillez réaliser l'installation avant la session.
 
 ### Docker-compose
 Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04). Pour les autres (Mac et Windows), cet utilitaire est déjà inclus dans Docker Desktop (installé plus haut).
+  
 
-### Spark
-Nous avons besoin d'installer Spark 3.0.2 en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
-Veuillez suivre les liens ci-dessous pour installer Spark sur votre machine en fonction de votre OS:  
-- [Windows](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-windows)
-- [Linux](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-linux)
-- [Mac](https://notadatascientist.com/install-spark-on-macos/)
-  
-  
 ## Lab Session
 
 ### Mise en route
@@ -97,7 +92,7 @@ version := "0.1" // la version de votre application
 scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
 ```
 
-- Nous allons compléter ce fichier avec les dépendances de Spark (version 3.0.2) qui se trouvent dans le [dépôt Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépôt contient tous les modules et frameworks Spark
+- Nous allons compléter ce fichier avec les dépendances de Spark (version 3.0.2) qui se trouvent dans le [dépot Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépot contient tous les modules et frameworks Spark
 
 - Pour notre use-case, nous allons utiliser les frameworks suivants:
     - [`Spark Core`](https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.12/3.0.2) la libraire de base de Spark,
@@ -131,13 +126,13 @@ libraryDependencies ++= Seq(
 ```
 ![image](https://user-images.githubusercontent.com/49156499/110214679-02b4b400-7ea6-11eb-9703-16477da0a1d8.png)
 
-Une fois ces dépendances ajoutées, IntelliJ va afficher un pop-up (en bas à gauche) avec 3 options, `Refresh` project, `Enable Auto-Import` et `Ignore`. Cliquez sur `Enable Auto-Import` de telle manière que IntelliJ télécharge automatiquement les dépendances à chaque mise-à-jour du fichier `build.sbt`.
+Une fois ces dépendances rajoutées, IntelliJ va afficher un pop-up (en bas à gauche) avec 3 options, `Refresh` project, `Enable Auto-Import` et `Ignore`. Cliquez sur `Enable Auto-Import` de telle manière qu'IntelliJ télécharge automatiquement les dépendances à chaque mise-à-jour du fichier `build.sbt`.
   
-Si toutefois le pop-up n'a pas été affiché, cliquez sur le panel `sbt` d'IntelliJ et ensuite sur l'icône `reload`
+Si toute-fois le pop-up n'a pas été affiché, cliquez sur le panel `sbt` d'IntelliJ et ensuite sur l'icône `reload`
 ![image](https://user-images.githubusercontent.com/49156499/110214842-cf265980-7ea6-11eb-9d76-55de4c42f61a.png)
 ![image](https://user-images.githubusercontent.com/49156499/110214858-dc434880-7ea6-11eb-8a6b-3b6c75df497c.png)
   
-IntelliJ affiche une erreur au cas où une dépendance n'a pas été trouvée.
+IntelliJ affiche une erreur au cas où une dépence n'a pas été trouvée.
 ![image](https://user-images.githubusercontent.com/49156499/110214930-3b08c200-7ea7-11eb-91fd-6659ac5785fd.png)
 
 
@@ -150,26 +145,47 @@ Pour ce faire:
 
 ![image](https://user-images.githubusercontent.com/49156499/110215198-c6cf1e00-7ea8-11eb-8a3f-31df0a40b04b.png)
 
+Maintenant que le projet est mis en place, copiez le contenu de ce [fichier](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/src/main/scala/WordCount.scala) dans `WordCount.scala`.  
+Ce code télécharge le contenu du fichier [ulysses.txt](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/data/ulysses.txt) et compte le nombre d'occurrences de chaque mot...  
 
-
-### Compilation
-
-### Test et débuggage
+### Compilation/Exécution/Packaging
+IntelliJ propose plusieurs méthodes pour compiler et exécuter une application Scala avec SBT.  
+1. La commande `SBT Commands > compile` (disponible dans la barre de menus) permet de compiler votre application. Le résultat s'affiche dans la fenètre `SBT Execute`
+2. L'onglet `sbt shell` disponible dans la toolbar (en bas) permet de
+    - de compiler (`compile`). L'application est compile et reporte d'éventuelles erreurs.
+    - d'exécuter (`run`). L'application est lancée directement sur la console. Il convient d'afficher quelques logs afin de suivre la progression.
+    - de packager (`package`) sous forme d'un ficher `.jar` (e.g `get-started_2.12--0.1.jar`) copié dans le répertoire `/target/scala-2.12` du projet. C'est ce fichier qui sera déployé sur le cluster Spark.
+3. Essayez successivement les 3 commandes ci-dessus.
 
 ### Cluster spark (local)
-Télécharger le fichier [docker-compose.yaml](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/main/spark/docker-compose.yaml). Il se trouve également dans le repo /spark.  
-Sauvegarder ce fichier dans un répertoire sur lequel vous avez les droits (par exemple myworkspace/spark)  
-Aller dans ce répertoire et exécuter la commande
+1. Télécharger le fichier [docker-compose.yaml](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/docker-compose.yaml) et mettez-le à la racine de votre projet.
+2. Cliquez sur l'onglet `Terminal` (dans la toolbar) et exécuter la commande suivante depuis la racine de votre projet. 
+
 ```
 docker-compose up
 ```
+
+Cette commande permet de lancer un master et un worker Spark sur votre machine locale.  Les 2 instances s'exécute dans un conteneur d'applications isolé de votre système.
 Une fois le script lancé, allez à l'adresse http://localhost:8080/ pour voir l'état de votre cluster spark. Vous devez voir le master et un worker.  
+![image](https://user-images.githubusercontent.com/49156499/110222698-740b5b80-7ed4-11eb-9803-89017dc9b0ee.png)
+  
+Note: `Ctl+C` permet d'arrêter l'exécution du cluster.  
+  
+La commande suivante permet de lancer le cluster en mode service
+```
+docker-compose up -d
+```
+Dans ce cas il faut exécuter la commande suivante pour l'arrêter
+```
+docker-compose down
+```
+
 Pour augmenter le nombre de workers (scale up), il suffit de lancer la commande suivante:
 ```
-docker-compose up --scale spark-worker=5
+docker-compose up -d --scale spark-worker=5
 ```
-où `5` correspond au nombre de workers que vous souhaitez lancer. Vous pouvez varier ce nombre et voir l'impact sur le cluster.
+où `5` correspond au nombre de workers que vous souhaitez lancer. Vous pouvez varier ce nombre et voir l'impact sur le cluster.  
+![image](https://user-images.githubusercontent.com/49156499/110222783-16c3da00-7ed5-11eb-816e-db2db5792fe5.png)
 
 
 ### Package et déployement
-

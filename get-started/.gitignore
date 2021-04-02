@@ -1,0 +1,9 @@
+*.class
+*.log
+/tokens.csv/
+/tokens.parquet/
+/target/
+/project/
+/.bsp/
+/.idea/
+https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/main/data/ulysses.txt
