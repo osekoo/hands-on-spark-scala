@@ -57,8 +57,15 @@ Veuillez réaliser l'installation avant la session.
 
 ### Docker-compose
 Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04). Pour les autres (Mac et Windows), cet utilitaire est déjà inclus dans Docker Desktop (installé plus haut).
-  
 
+### Spark
+Nous avons besoin d'installer Spark 3.0.2 en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
+Veuillez suivre les liens ci-dessous pour installer Spark sur votre machine en fonction de votre OS:  
+- [Windows](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-windows)
+- [Linux](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-linux)
+- [Mac](https://notadatascientist.com/install-spark-on-macos/)
+  
+  
 ## Lab Session
 
 ### Mise en route
@@ -92,7 +99,7 @@ version := "0.1" // la version de votre application
 scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
 ```
 
-- Nous allons compléter ce fichier avec les dépendances de Spark (version 3.0.2) qui se trouvent dans le [dépot Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépot contient tous les modules et frameworks Spark
+- Nous allons compléter ce fichier avec les dépendances de Spark (version 3.0.2) qui se trouvent dans le [dépôt Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépôt contient tous les modules et frameworks Spark
 
 - Pour notre use-case, nous allons utiliser les frameworks suivants:
     - [`Spark Core`](https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.12/3.0.2) la libraire de base de Spark,
@@ -126,13 +133,13 @@ libraryDependencies ++= Seq(
 ```
 ![image](https://user-images.githubusercontent.com/49156499/110214679-02b4b400-7ea6-11eb-9703-16477da0a1d8.png)
 
-Une fois ces dépendances rajoutées, IntelliJ va afficher un pop-up (en bas à gauche) avec 3 options, `Refresh` project, `Enable Auto-Import` et `Ignore`. Cliquez sur `Enable Auto-Import` de telle manière qu'IntelliJ télécharge automatiquement les dépendances à chaque mise-à-jour du fichier `build.sbt`.
+Une fois ces dépendances ajoutées, IntelliJ va afficher un pop-up (en bas à gauche) avec 3 options, `Refresh` project, `Enable Auto-Import` et `Ignore`. Cliquez sur `Enable Auto-Import` de telle manière que IntelliJ télécharge automatiquement les dépendances à chaque mise-à-jour du fichier `build.sbt`.
   
-Si toute-fois le pop-up n'a pas été affiché, cliquez sur le panel `sbt` d'IntelliJ et ensuite sur l'icône `reload`
+Si toutefois le pop-up n'a pas été affiché, cliquez sur le panel `sbt` d'IntelliJ et ensuite sur l'icône `reload`
 ![image](https://user-images.githubusercontent.com/49156499/110214842-cf265980-7ea6-11eb-9d76-55de4c42f61a.png)
 ![image](https://user-images.githubusercontent.com/49156499/110214858-dc434880-7ea6-11eb-8a6b-3b6c75df497c.png)
   
-IntelliJ affiche une erreur au cas où une dépence n'a pas été trouvée.
+IntelliJ affiche une erreur au cas où une dépendance n'a pas été trouvée.
 ![image](https://user-images.githubusercontent.com/49156499/110214930-3b08c200-7ea7-11eb-91fd-6659ac5785fd.png)
 
 
