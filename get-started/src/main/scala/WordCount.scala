@@ -18,14 +18,13 @@ object WordCount {
     val spark: SparkSession = SparkSession.builder()
       .appName(s"WordCount")
       //.master("spark://d3ac1855a9f3:7077")
-      //.master("local[*]")
+      .master("local[*]")
       .getOrCreate()
 
     val filePath = "ulysses.txt"
-
     logger.info(s"loading text from $filePath ...")
-    val content = Source.fromResource(filePath) // downloading URL's content
-    val pattern = "([A-Z]+)".r // Set up words filtering regex
+    val content = Source.fromResource(filePath) // reading file content
+    val pattern = "([A-Z]+)".r // Set up words filtering regex. We only keep words
 
     logger.info("tokenizing the input text...")
     val tokens = pattern.findAllIn(content.mkString.toUpperCase) // extracting words from the above text
@@ -39,7 +38,7 @@ object WordCount {
 
     logger.info("counting the occurrence of each word...")
     val wordCountDf = tokensDf.where(length(col("token")) > 2) // we keep only words with length greater than 2
-      .groupBy("token") // computing the word count using groupBy() instruction
+      .groupBy("token") // counting the words using groupBy() instruction
       .count()
       .orderBy(desc("count"))
 
