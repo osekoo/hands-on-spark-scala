@@ -11,7 +11,7 @@ L'objectif de cette session pratique est:
 - de packager l'application et l'exécuter sur le cluster local Spark.
 
 ## Prérequis
-_à faire avant la session_
+_A faire avant la session_
 
 ### Installation et configuration d'`IntelliJ`
 [`IntelliJ IDEA`](https://www.jetbrains.com/idea/download/) est un [IDE](https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement) permettant de développer des logiciels dans plusieurs langages notamment `Java` et `Scala`.  
