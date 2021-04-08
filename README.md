@@ -171,5 +171,17 @@ docker-compose up --scale spark-worker=5
 où `5` correspond au nombre de workers que vous souhaitez lancer. Vous pouvez varier ce nombre et voir l'impact sur le cluster.
 
 
-### Package et déployement
+
+### Packaging
+IntelliJ reconnait automatiquement les projets Scala et adapte l'environnement en conséquence.  
+Vous trouverez en bas un onglet intitulé "sbt shell". Il suffit d'ouvrir cet onglet pour lancer le moteur SBT.  
+La commande `compile` permet de compiler votre application.  
+La commande `package` permet de créer le package de l'application qui sera exécuté sur Spark.
+Elle produit un fichier `jar` qui est mis dans la racine du répertoire `target/scala-<scala_version>` et porte le nom `<project_name>_<scala_version>_<application_version>.jar`.
+Parfois il est nécessaire d'exécuter la commande `clean` avant de compiler ou de packager votre programme.
+
+### Exécution sur cluster Spark
+Une fois le package obtenu, à l'aide de la commande `spark-submit` nous allons exécuter notre application sur notre cluster local que nous avons lancé un peu plus haut.
+Si ce n'est pas encore le cas, c'est le moment de le lancer avec la commande `docker-compose up`.  
+
 
