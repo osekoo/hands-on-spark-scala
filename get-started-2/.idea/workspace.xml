@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75fa9b4d-29cb-4e85-b0b1-4cbcc33966cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../get-started/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../get-started/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../get-started/src/main/scala/WordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../get-started/src/main/scala/WordCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../get-started/submit.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../get-started/submit.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../get-started/submit.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../get-started/submit.sh" afterDir="false" />
-    </list>
+    <list default="true" id="75fa9b4d-29cb-4e85-b0b1-4cbcc33966cf" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
