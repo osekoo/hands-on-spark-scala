@@ -184,4 +184,13 @@ Parfois il est nécessaire d'exécuter la commande `clean` avant de compiler ou 
 Une fois le package obtenu, à l'aide de la commande `spark-submit` nous allons exécuter notre application sur notre cluster local que nous avons lancé un peu plus haut.
 Si ce n'est pas encore le cas, c'est le moment de le lancer avec la commande `docker-compose up`.  
 
-
+```(shell)
+spark-submit \
+  --master spark://a129bc926f29:7077 \
+  --deploy-mode client \
+  --executor-cores 4 \
+  --num-executors 1 \
+  --files ./ulysses.txt \
+  --class WordCount \
+  target/scala-2.12/get-started_2.12-0.1.jar
+```
