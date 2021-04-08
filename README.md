@@ -186,7 +186,7 @@ Si ce n'est pas encore le cas, c'est le moment de le lancer avec la commande `do
 
 ```(shell)
 spark-submit \
-  --master spark://a129bc926f29:7077 \
+  --master spark://localhost:7077 \
   --deploy-mode client \
   --executor-cores 4 \
   --num-executors 1 \
