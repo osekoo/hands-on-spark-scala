@@ -1,6 +1,6 @@
 spark-submit \
-  --master spark://a129bc926f29:7077 \
-  --deploy-mode client \
+  --master spark://localhost:7077 \
+  --deploy-mode cluster \
   --executor-cores 4 \
   --num-executors 1 \
   --files ./ulysses.txt \

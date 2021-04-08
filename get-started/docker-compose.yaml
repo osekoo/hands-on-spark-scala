@@ -14,6 +14,7 @@ services:
       - "./target/scala-2.12:/app"
     ports:
       - '8080:8080'
+      - '7077:7077'
 
   spark-worker:
     image: docker.io/bitnami/spark:latest
@@ -21,7 +22,7 @@ services:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
       - SPARK_WORKER_MEMORY=1G
-      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_CORES=2
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
