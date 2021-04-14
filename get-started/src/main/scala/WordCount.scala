@@ -48,6 +48,7 @@ object WordCount {
       wordCountDf.show(100, truncate = false)
     }
 
+
     //    logger.info("saving the dataframe in csv format...")
     //    wordCountDf.repartition(1) // grouping the data into 1 partition
     //      .write.mode(SaveMode.Overwrite)
