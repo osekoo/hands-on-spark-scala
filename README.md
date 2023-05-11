@@ -42,10 +42,10 @@ Dans cette session, nous allons utiliser [Spark 3.4.0](https://spark.apache.org/
 
 1. Scala (2.13.x)
 - Lancez IntelliJ,
-- cliquez sur `Plugins` ou (`Configure > Plugins`),
-- dans la barre de recherche, tapez `scala` et installer le plugin tel indiqué ci-dessous
+- Cliquez sur `Plugins` ou (`Configure > Plugins`),
+- Dans la barre de recherche, tapez `scala` et installer le plugin tel indiqué ci-dessous
 ![image](https://user-images.githubusercontent.com/49156499/110211898-08f06380-7e99-11eb-9aed-22566cd25788.png)
-- redémarrez IntelliJ
+- Redémarrez IntelliJ
 
 2. SBT (1.x)  
 Installez SBT en suivant les mêmes étapes que ci-dessus
@@ -66,7 +66,8 @@ Les liens ci-dessous vous guident dans l'installation de Docker sur votre machin
 Veuillez réaliser l'installation avant la session.
 
 ### Docker-compose
-Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04). Pour les autres (Mac et Windows), cet utilitaire est déjà inclus dans Docker Desktop (installé plus haut).
+Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
+Pour les autres (Mac et Windows), cet utilitaire est déjà inclus dans Docker Desktop (installé plus haut).
 
 ### Spark
 Nous avons besoin d'installer Spark 3.0.2 en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
