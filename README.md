@@ -3,6 +3,14 @@
 2. [Prérequis](#prérequis)
 3. [Lab Session](#lab-session)
 
+### Edit 2023
+Les versions suivantes doivent être utilisées dans la suite de ce tutoriel:
+- Spark 3.4.0
+- Scala 2.13.10
+- Java 1.8
+
+La procédure reste identique.
+
 ## Objectifs
 L'objectif de cette session pratique est:
 - d'implémenter un mini-projet [Apache Spark](https://spark.apache.org/) en [Scala](https://www.scala-lang.org/) en utilisant [IntelliJ](https://www.jetbrains.com/idea/),
