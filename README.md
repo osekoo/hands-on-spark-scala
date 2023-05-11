@@ -105,41 +105,47 @@ Veuillez suivre les liens ci-dessous pour installer Spark sur votre machine en f
 
 - Ouvrez le fichier `build.sbt` qui se trouve dans le panel de gauche. Il doit contenir 3 lignes:  
 ```(scala)
-name := "get-started" // le nom de votre projet
-version := "0.1" // la version de votre application
-scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
+ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / scalaVersion := "2.13.10"
+lazy val root = (project in file("."))
+  .settings(
+    name := "hands-on-spark-scala-2023"
+  )
 ```
 
-- Nous allons compléter ce fichier avec les dépendances de Spark (version 3.0.2) qui se trouvent dans le [dépôt Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépôt contient tous les modules et frameworks Spark
+- Nous allons compléter ce fichier avec les dépendances de Spark (version 3.4.0) qui se trouvent dans le [dépôt Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépôt contient tous les modules et frameworks Spark
 
 - Pour notre use-case, nous allons utiliser les frameworks suivants:
-    - [`Spark Core`](https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.12/3.0.2) la libraire de base de Spark,
-    - [`Spark SQL`](https://mvnrepository.com/artifact/org.apache.spark/spark-sql_2.12/3.0.2) pour les requêtes SQL,
-    - [`Spark MLlib`](https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.12/3.0.2) pour le machine learning
+    - [`Spark Core`](https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.13/3.4.0) la libraire de base de Spark,
+    - [`Spark SQL`](https://mvnrepository.com/artifact/org.apache.spark/spark-sql_2.13/3.4.0) pour les requêtes SQL,
+    - [`Spark MLlib`](https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.13/3.4.0) pour le machine learning
 
 - Pour récupérer la bonne version d'un framework/module
-    - allez sur le dépôt du framework et cliquez sur la version désirée (dans notre cas 3.0.2),
+    - allez sur le dépôt du framework et cliquez sur la version désirée (dans notre cas 3.4.0),
 ![image](https://user-images.githubusercontent.com/49156499/110213736-98017980-7ea1-11eb-89a4-363f1c294a66.png)
     - ensuite cliquez sur l'onglet `SBT` et copier le contenu de la zone de texte  
 ![image](https://user-images.githubusercontent.com/49156499/110213775-c1220a00-7ea1-11eb-88f8-4659443081d5.png)
     - collez ce contenu dans le fichier `build.sbt` comme indiqué ci-dessous  
 ```(scala)
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % "3.0.2"
+  "org.apache.spark" %% "spark-core" % "3.4.0"
 )
 ```
    
 Au final, votre fichier `build.sbt` doit ressembler à ceci:   
 
 ```(scala)
-name := "get-started" // le nom de votre projet
-version := "0.1" // la version de votre application
-scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
+ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / scalaVersion := "2.13.10"
+lazy val root = (project in file("."))
+  .settings(
+    name := "hands-on-spark-scala-2023"
+  )
 
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % "3.0.2",
-  "org.apache.spark" %% "spark-sql" % "3.0.2",
-  "org.apache.spark" %% "spark-mllib" % "3.0.2" % "provided"
+  "org.apache.spark" %% "spark-core" % "3.4.0",
+  "org.apache.spark" %% "spark-sql" % "3.4.0",
+  "org.apache.spark" %% "spark-mllib" % "3.4.0" % "provided"
 )
 ```
 ![image](https://user-images.githubusercontent.com/49156499/110214679-02b4b400-7ea6-11eb-9703-16477da0a1d8.png)
