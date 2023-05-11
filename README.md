@@ -70,7 +70,7 @@ Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.di
 Pour les autres (Mac et Windows), cet utilitaire est déjà inclus dans Docker Desktop (installé plus haut).
 
 ### Spark
-Nous avons besoin d'installer Spark 3.0.2 en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
+Nous avons besoin d'installer Spark 3.4.0 en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
 Veuillez suivre les liens ci-dessous pour installer Spark sur votre machine en fonction de votre OS:  
 - [Windows](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-windows)
 - [Linux](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-linux)
