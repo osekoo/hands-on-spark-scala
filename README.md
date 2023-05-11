@@ -59,7 +59,10 @@ Dans cette session, pour des raisons pratiques, nous allons utiliser des [docker
 Un docker est un conteneur d'applications permettant d'exécuter une application indépendamment du système d'exploitation et de ses dépendances.  
 L'application est packagée d'une façon autonome (avec toutes ses dépendances) pour être exécutée sur n'importe quel système.  
 Les liens ci-dessous vous guident dans l'installation de Docker sur votre machine locale:  
-[Windows](https://docs.docker.com/docker-for-windows/install/) | [Ubuntu](https://docs.docker.com/engine/install/ubuntu/) | [Mac](https://docs.docker.com/docker-for-mac/install/).  
+- [Windows](https://docs.docker.com/docker-for-windows/install/)
+- [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [Mac](https://docs.docker.com/docker-for-mac/install/).  
+
 Veuillez réaliser l'installation avant la session.
 
 ### Docker-compose
