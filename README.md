@@ -169,6 +169,9 @@ Pour ce faire:
 
 ![image](https://user-images.githubusercontent.com/49156499/110215198-c6cf1e00-7ea8-11eb-8a3f-31df0a40b04b.png)
 
+- Copiez le contenu de ce [fichier](https://github.com/osekoo/hands-on-spark-scala/blob/develop/get-started/src/main/scala/WordCount.scala) dans WordCount que vous venez de créer
+- Analysez le code!
+
 
 
 ### Compilation
