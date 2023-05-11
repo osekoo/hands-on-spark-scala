@@ -36,11 +36,11 @@ Note: votre compte étudiant de Dauphine vous donne accès gratuitement à la ve
   
 Nous allons maintenant configurer `IntelliJ` avec les versions de Spark, Java, Scala et SBT qui sont compatibles entre elles.  
 Il y a une relation très forte entre les versions de ces langages/frameworks/outils: `Spark ==> Scala ==> (Java, SBT)`.  
-e.g: `Spark 3.0.2 ==> Scala 2.12.x ==> (Java 8, SBT 1.x)`
+e.g: `Spark 3.4.0 ==> Scala 2.13.x ==> (Java 8, SBT 1.x)`
   
-Dans cette session, nous allons utiliser [Spark 3.0.2](https://spark.apache.org/docs/3.0.2/).  
+Dans cette session, nous allons utiliser [Spark 3.4.0](https://spark.apache.org/docs/3.4.0/).  
 
-1. Scala (2.12.x)
+1. Scala (2.13.x)
 - Lancez IntelliJ,
 - cliquez sur `Plugins` ou (`Configure > Plugins`),
 - dans la barre de recherche, tapez `scala` et installer le plugin tel indiqué ci-dessous
