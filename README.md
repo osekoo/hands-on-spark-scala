@@ -52,7 +52,7 @@ Installez SBT en suivant les mêmes étapes que ci-dessus
 ![image](https://user-images.githubusercontent.com/49156499/110212000-916f0400-7e99-11eb-9e24-680b14bbbfc0.png)
 
 3. Java (1.8)  
-A voir plus tard.
+Le JDK 1.8 sera installé lors de la création du projet. Voir plus loin.
 
 ### Docker
 Dans cette session, pour des raisons pratiques, nous allons utiliser des [dockers](https://www.docker.com/) ([conteneurs d'applications](https://fr.wikipedia.org/wiki/Docker_\(logiciel\))) pour exécuter nos applications.  
