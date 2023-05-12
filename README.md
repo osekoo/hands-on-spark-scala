@@ -149,7 +149,6 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-mllib" % "3.4.0" % "provided"
 )
 ```
-![image]()
 
 Une fois ces dépendances ajoutées, IntelliJ va afficher un pop-up (en bas à gauche) avec 3 options, `Refresh` project, `Enable Auto-Import` et `Ignore`. Cliquez sur `Enable Auto-Import` de telle manière que IntelliJ télécharge automatiquement les dépendances à chaque mise-à-jour du fichier `build.sbt`.
   
