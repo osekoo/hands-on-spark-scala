@@ -169,8 +169,7 @@ Pour ce faire:
 
 ![image](https://user-images.githubusercontent.com/49156499/110215198-c6cf1e00-7ea8-11eb-8a3f-31df0a40b04b.png)
 
-- Copiez le contenu de ce [fichier](https://github.com/osekoo/hands-on-spark-scala/blob/develop/get-started/src/main/scala/WordCount.scala) dans WordCount que vous venez de créer
-- Analysez le code!
+- Copiez le contenu de ce [fichier](https://github.com/osekoo/hands-on-spark-scala/blob/develop/get-started/src/main/scala/WordCount.scala) dans WordCount.scala que vous venez de créer
 
 
 
@@ -185,6 +184,8 @@ Aller dans ce répertoire et exécuter la commande
 ```
 docker-compose up
 ```
+Pour les utilisateurs Windows, n'oubliez pas de lancer Docker Desktop avant d'exécuter la commande ci-dessus.
+
 Une fois le script lancé, allez à l'adresse http://localhost:8080/ pour voir l'état de votre cluster spark. Vous devez voir le master et un worker.  
 Pour augmenter le nombre de workers (scale up), il suffit de lancer la commande suivante:
 ```
