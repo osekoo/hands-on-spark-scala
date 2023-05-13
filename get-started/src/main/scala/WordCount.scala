@@ -1,7 +1,6 @@
 import org.apache.log4j.{Level, Logger}
-import org.apache.spark.sql.{SaveMode, SparkSession}
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.functions.col
 
 import scala.io.Source
 
@@ -17,11 +16,11 @@ object WordCount {
   def main(args: Array[String]): Unit = {
     val spark: SparkSession = SparkSession.builder()
       .appName(s"WordCount")
-      // .master("spark://localhost:7077")
+      .master("spark://localhost:7077")
       // .master("local[*]")
       .getOrCreate()
 
-    for (_ <- 1 to 100) {
+    for (_ <- 1 to 1) {
       val filePath = "ulysses.txt"
       logger.info(s"loading text from $filePath ...")
       val content = Source.fromFile(filePath) // reading file content
