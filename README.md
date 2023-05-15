@@ -31,19 +31,20 @@ e.g: `Spark 3.0.2 ==> Scala 2.12.x ==> (Java 8, SBT 1.x)`
 
 Dans cette session, nous allons utiliser [Spark 3.0.2](https://spark.apache.org/docs/3.0.2/).
 
-1. Scala (2.12.x)
+1. ### Scala (2.12.x)
 - Lancez IntelliJ,
 - cliquez sur `Plugins` ou (`Configure > Plugins`),
 - dans la barre de recherche, tapez `scala` et installer le plugin tel indiqué ci-dessous
   ![image](https://user-images.githubusercontent.com/49156499/110211898-08f06380-7e99-11eb-9aed-22566cd25788.png)
 - redémarrez IntelliJ
 
-2. SBT (1.x)  
+2. ### SBT (1.x)  
    Installez SBT en suivant les mêmes étapes que ci-dessus
    ![image](https://user-images.githubusercontent.com/49156499/110212000-916f0400-7e99-11eb-9e24-680b14bbbfc0.png)
 
-3. Java (1.8)  
-   A voir plus tard.
+3. ### Java (1.8)  
+   Scala requiert une version de JDK 1.8 ou supérieure. La matrice de compatibilité entre Scala et JDK est disponible [ici](https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html).
+   Pour des raisons pratiques, nous allons utiliser la version 1.8 dans ce lab. Veuillez noter que la version du JDK doit être en ligne avec celle supportée par [Spark](https://docs.qubole.com/en/latest/user-guide/engines/spark/spark-supportability.html).
 
 ### Docker
 Dans cette session, pour des raisons pratiques, nous allons utiliser des [dockers](https://www.docker.com/) ([conteneurs d'applications](https://fr.wikipedia.org/wiki/Docker_\(logiciel\))) pour exécuter nos applications.  
