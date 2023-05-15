@@ -152,7 +152,8 @@ Pour ce faire:
 - Faites un clique-droit sur le répertoire `src/main/scala`,
 - donnez un nom pour votre fichier (e.g `WordCount`) et cliquez sur `New > Scala Class`
 - et faites un double-clique sur `Object` dans liste.
-
+- Remplacez le contenu du fichier que vous venez de créer (`WordCoubnt`) par [celui-ci](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/src/main/scala/WordCount.scala)
+- Téléchargez le fichier [`ulysses.txt`](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/ulysses.txt) et placez-le à la racine de votre projet.
 ![image](https://user-images.githubusercontent.com/49156499/110215198-c6cf1e00-7ea8-11eb-8a3f-31df0a40b04b.png)
 
 
