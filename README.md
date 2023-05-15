@@ -43,6 +43,8 @@ Dans cette session, nous allons utiliser [Spark 3.0.2](https://spark.apache.org/
    ![image](https://user-images.githubusercontent.com/49156499/110212000-916f0400-7e99-11eb-9e24-680b14bbbfc0.png)
 
 3. ### Java (1.8)  
+A installer plus tard avec IntelliJ.
+__Note__
    Scala requiert une version de JDK 1.8 ou supérieure. La matrice de compatibilité entre Scala et JDK est disponible [ici](https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html).
    Pour des raisons pratiques, nous allons utiliser la version 1.8 dans ce lab. Veuillez noter que la version du JDK doit être en ligne avec celle supportée par [Spark](https://docs.qubole.com/en/latest/user-guide/engines/spark/spark-supportability.html).
 
