@@ -1,4 +1,6 @@
 import org.apache.log4j.{Level, Logger}
+import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.feature.{RegexTokenizer, StopWordsRemover}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
@@ -14,38 +16,51 @@ object WordCount {
   @transient lazy val logger: Logger = Logger.getLogger("$")
 
   def main(args: Array[String]): Unit = {
+    logger.info("Initializing spark context...")
     val spark: SparkSession = SparkSession.builder()
       .appName(s"WordCount")
-      .master("spark://localhost:7077")
-      // .master("local[*]")
+      // .master("spark://localhost:7077")
+      .master("local[*]")
       .getOrCreate()
 
-    for (_ <- 1 to 1) {
-      val filePath = "ulysses.txt"
-      logger.info(s"loading text from $filePath ...")
-      val content = Source.fromFile(filePath) // reading file content
-      val pattern = "([A-Z]+)".r // Set up words filtering regex. We only keep words
+    val filePath = "ulysses.txt"
+    logger.info(s"loading text from $filePath ...")
+    val content = Source.fromFile(filePath) // reading file content
 
-      logger.info("tokenizing the input text...")
-      val tokens = pattern.findAllIn(content.mkString.toUpperCase) // extracting words from the above text
-        .matchData.map(_.group(1)).toSeq
-        .zipWithIndex
+    val data = spark.createDataFrame(Seq((0, content.mkString)))
+      .toDF("id", "sentence")
 
-      logger.info("converting the tokens into dataframe...")
-      val tokensDf = spark.createDataFrame(tokens) // creating DataFrame from above Seq
-        .toDF("token", "id")
-        .select("token")
-      tokensDf.show(100, truncate = false)
+    logger.info("tokenizing the input text...")
+    val tokenizer = new RegexTokenizer().setInputCol("sentence")
+      .setOutputCol("words")
+      .setPattern("[a-z]+").setGaps(false) // Set up words filtering regex. We only keep words
 
-      logger.info("counting the occurrence of each word...")
-      val wordCountDf = tokensDf.where(length(col("token")) > 2) // we keep only words with length greater than 2
-        .groupBy("token") // counting the words using groupBy() instruction
-        .count()
-        .orderBy(desc("count"))
+    logger.info("removing stop words from the dataframe...")
+    val remover = new StopWordsRemover().setInputCol("words").setOutputCol("word")
 
-      logger.info("displaying the dataframe...")
-      wordCountDf.show(100, truncate = false)
-    }
+    // transformer pipeline
+    val pipeline = new Pipeline().setStages(Array(tokenizer, remover))
+    logger.info("transforming the input text...")
+    val model = pipeline.fit(data)
+    val words = model.transform(data)
+    words.show(100, truncate = true)
+
+    logger.info("exploding words into rows...")
+    val tokens = words.select(explode(col("word")).as("token"))
+      .where(length(col("token")) > 1)
+    logger.info("Nb words: " + tokens.count())
+    tokens.show(false)
+
+    logger.info("counting the occurrence of each word...")
+    val wordCountDf = tokens
+      .groupBy("token") // counting the words using groupBy() instruction
+      .count()
+      .orderBy(desc("count"))
+    wordCountDf.count();
+
+    logger.info("displaying the dataframe...")
+    wordCountDf.show(100, truncate = false)
+
 
 
     //    logger.info("saving the dataframe in csv format...")
