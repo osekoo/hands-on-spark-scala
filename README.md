@@ -62,7 +62,8 @@ Veuillez réaliser l'installation avant la session.
 Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04). Pour les autres (Mac et Windows), cet utilitaire est déjà inclus dans Docker Desktop (installé plus haut).
 
 ### Spark
-Nous avons besoin d'installer Spark 3.0.2 en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
+Note: toutes les versions de spark sont disponibles [ici](https://archive.apache.org/dist/spark/).  
+Nous avons besoin d'installer Spark [3.0.2](https://archive.apache.org/dist/spark/spark-3.0.2/) en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
 Veuillez suivre les liens ci-dessous pour installer Spark sur votre machine en fonction de votre OS:
 - [Windows](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-windows)
 - [Linux](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-linux)

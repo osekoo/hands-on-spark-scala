@@ -1,5 +1,5 @@
 name := "get-started" // project's name
-version := "0.1" // Our application version
+version := "0.7" // Our application version
 scalaVersion := "2.12.13" // version of Scala we want to use (this should be in line with the version of Spark framework)
 
 libraryDependencies ++= Seq(
