@@ -19,7 +19,7 @@ object WordCount {
     logger.info("Initializing spark context...")
     val spark: SparkSession = SparkSession.builder()
       .appName(s"WordCount")
-      // .master("spark://localhost:7077")
+      //.master("spark://localhost:7077")
       .master("local[*]")
       .getOrCreate()
 

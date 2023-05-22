@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   spark:
-    image: docker.io/bitnami/spark:latest
+    image: docker.io/bitnami/spark:3.0.2
     container_name: spark
     environment:
       - SPARK_MODE=master
@@ -17,7 +17,7 @@ services:
       - '7077:7077'
 
   spark-worker:
-    image: docker.io/bitnami/spark:latest
+    image: docker.io/bitnami/spark:3.0.2
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
