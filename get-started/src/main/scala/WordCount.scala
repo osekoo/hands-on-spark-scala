@@ -4,7 +4,8 @@ import org.apache.spark.ml.feature.{RegexTokenizer, StopWordsRemover}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
-import scala.io.Source
+import java.nio.charset.CodingErrorAction
+import scala.io.{Codec, Source}
 
 /**
  * Implements Word Count using Spark SQL
@@ -20,12 +21,15 @@ object WordCount {
     val spark: SparkSession = SparkSession.builder()
       .appName(s"WordCount")
       //.master("spark://localhost:7077")
-      .master("local[*]")
+      //.master("local[*]")
       .getOrCreate()
 
-    val filePath = "ulysses.txt"
+    val filePath = "./ulysses.txt"
     logger.info(s"loading text from $filePath ...")
-    val content = Source.fromFile(filePath) // reading file content
+    implicit val codec = Codec("UTF-8")
+    codec.onMalformedInput(CodingErrorAction.REPLACE)
+    codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
+    val content = Source.fromFile(filePath, "UTF-8") // reading file content
 
     val data = spark.createDataFrame(Seq((0, content.mkString)))
       .toDF("id", "sentence")
@@ -49,6 +53,7 @@ object WordCount {
     val tokens = words.select(explode(col("word")).as("token"))
       .where(length(col("token")) > 1)
     logger.info("Nb words: " + tokens.count())
+    tokens.persist()
     tokens.show(false)
 
     logger.info("counting the occurrence of each word...")
@@ -56,18 +61,20 @@ object WordCount {
       .groupBy("token") // counting the words using groupBy() instruction
       .count()
       .orderBy(desc("count"))
-    wordCountDf.count();
+      .persist()
+    logger.info("Nb of tokens: " + wordCountDf.count())
 
     logger.info("displaying the dataframe...")
     wordCountDf.show(100, truncate = false)
 
+  /*
+    logger.info("saving the dataframe in csv format...")
+    wordCountDf.collect()
+    wordCountDf // grouping the data into 1 partition
+      .write.mode(SaveMode.Overwrite)
+      .csv("tokens.csv")
+    */
 
-
-    //    logger.info("saving the dataframe in csv format...")
-    //    wordCountDf.repartition(1) // grouping the data into 1 partition
-    //      .write.mode(SaveMode.Overwrite)
-    //      .csv("tokens.csv")
-    //
     //    logger.info("saving the dataframe in parquet format...")
     //    wordCountDf.write.mode(SaveMode.Overwrite)
     //      .parquet("tokens.parquet")
