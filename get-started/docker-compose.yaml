@@ -31,19 +31,19 @@ services:
     depends_on:
         - spark-master
 
-  spark-client:
-    image: docker.io/library/myspark
-    container_name: spark-client
+  spark-app:
+    image: docker.io/library/spark-app
+    container_name: spark-app
     environment:
+      - SPARK_FILES=ulysses.txt
+      - SPARK_CLASS=WordCount
+      - SPARK_PACKAGE=target/scala-2.12/get-started_2.12-0.1.jar
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
       - SPARK_DEPLOY_MODE=client
       - SPARK_WORKER_MEMORY=4G
       - SPARK_WORKER_CORES=4
       - SPARK_EXECUTORS=2
-      - SPARK_FILES=ulysses.txt
-      - SPARK_CLASS=WordCount
-      - SPARK_PACKAGE=target/scala-2.12/get-started_2.12-0.1.jar
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
