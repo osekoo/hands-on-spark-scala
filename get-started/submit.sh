@@ -11,3 +11,4 @@ spark-submit \
   --files $SPARK_FILES \
   --class $SPARK_CLASS \
   $SPARK_PACKAGE
+  
