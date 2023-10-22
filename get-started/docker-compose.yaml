@@ -2,56 +2,37 @@ version: '3.5'
 
 services:
   spark-master:
-    image: docker.io/bitnami/spark:3.0.2
+    image: osekoo/spark:3.5.0
     container_name: spark-master
+    build:
+      context: ./
     environment:
       - SPARK_MODE=master
-      - SPARK_WORKER_MEMORY=4G
-      - SPARK_WORKER_CORES=4
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-      - SPARK_RPC_ENCRYPTION_ENABLED=no
-      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-      - SPARK_SSL_ENABLED=no
     ports:
-      - '8080:8080'
-      - '7077:7077'
+      - '${SPARK_MASTER_PORT:-7077}:${SPARK_MASTER_PORT:-7077}'
+      - '${SPARK_WEBUI_PORT:-8080}:${SPARK_WEBUI_PORT:-8080}'
 
   spark-worker:
-    image: docker.io/bitnami/spark:3.0.2
-    container_name: spark-worker
+    image: osekoo/spark:3.5.0
+    env_file:
+      - .env
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_WORKER_MEMORY=4G
-      - SPARK_WORKER_CORES=4
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-      - SPARK_RPC_ENCRYPTION_ENABLED=no
-      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-      - SPARK_SSL_ENABLED=no
-    depends_on:
-        - spark-master
-
-  spark-app:
-    image: docker.io/library/spark-app
-    container_name: spark-app
-    environment:
-      - SPARK_FILES=ulysses.txt
-      - SPARK_CLASS=WordCount
-      - SPARK_PACKAGE=target/scala-2.12/get-started_2.12-0.1.jar
-      - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_DEPLOY_MODE=client
-      - SPARK_WORKER_MEMORY=4G
-      - SPARK_WORKER_CORES=4
-      - SPARK_EXECUTORS=2
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-      - SPARK_RPC_ENCRYPTION_ENABLED=no
-      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-      - SPARK_SSL_ENABLED=no
-    volumes:
-      - "./:/app"
+    deploy:
+      replicas: ${SPARK_WORKERS:-2 }
     depends_on:
       - spark-master
 
-
-# docker-compose up --scale spark-worker=10
+  spark-submit:
+    image: osekoo/spark:3.5.0
+    container_name: spark-submit
+    env_file:
+      - .env
+    environment:
+      - SPARK_MODE=submit
+    ports:
+      - '${SPARK_APP_PORT:-4040}:${SPARK_APP_PORT:-4040}'
+    volumes:
+      - "./:/app"
+    depends_on:
+      - spark-worker
