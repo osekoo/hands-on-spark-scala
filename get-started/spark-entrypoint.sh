@@ -9,8 +9,8 @@ elif [ "${SPARK_MODE}" == "worker" ]; then
 elif [ "${SPARK_MODE}" == "submit" ]; then
   cd /app || exit
   if [ "$APP_BUILD_SBT" == "true" ]; then
-    rm -rf /app/target
-    rm -rf /app/project/target
+#    rm -rf /app/target
+#    rm -rf /app/project/target
     sbt clean
     sbt package
   fi
