@@ -1,7 +1,7 @@
-name := sys.env.get("APP_NAME").getOrElse("get-started") // the project's name
+name := sys.env.get("APP_NAME").getOrElse("wordcount-example") // the project's name
 version := sys.env.get("APP_VERSION").getOrElse("0.1") // the application version
-scalaVersion := sys.env.get("SCALA_FULL_VERSION").getOrElse("2.12.13") // version of Scala we want to use (this should be in line with the version of Spark framework)
-val sparkVersion = sys.env.get("SPARK_VERSION").getOrElse("3.0.2")
+scalaVersion := sys.env.get("SCALA_FULL_VERSION").getOrElse("2.12.18") // version of Scala we want to use (this should be in line with the version of Spark framework)
+val sparkVersion = sys.env.get("SPARK_VERSION").getOrElse("3.5.0")
 
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
