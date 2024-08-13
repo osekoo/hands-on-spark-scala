@@ -1,8 +1,3 @@
-__DEPRECATED_  
-Replaced by https://github.com/osekoo/spark-get-started
-
-
-
 ## Sommaire
 1. [Objectifs](#objectifs)
 2. [Prérequis](#prérequis)
