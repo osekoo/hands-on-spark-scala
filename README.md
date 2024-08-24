@@ -125,15 +125,19 @@ libraryDependencies ++= Seq(
 Au final, votre fichier `build.sbt` doit ressembler à ceci:
 
 ```(scala)
-name := "get-started" // le nom de votre projet
-version := "0.1" // la version de votre application
-scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
+name := sys.env.get("APP_NAME").getOrElse("wordcount-example") // the project's name
+version := sys.env.get("APP_VERSION").getOrElse("0.1") // the application version
+scalaVersion := sys.env.get("SCALA_FULL_VERSION").getOrElse("2.12.18") // version of Scala we want to use (this should be in line with the version of Spark framework)
+organization := "com.osekoo.dev"
+
+val sparkVersion = sys.env.get("SPARK_VERSION").getOrElse("3.5.2")
 
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % "3.0.2",
-  "org.apache.spark" %% "spark-sql" % "3.0.2",
-  "org.apache.spark" %% "spark-mllib" % "3.0.2" % "provided"
+  "org.apache.spark" %% "spark-core" % sparkVersion,
+  "org.apache.spark" %% "spark-sql" % sparkVersion,
+  "org.apache.spark" %% "spark-mllib" % sparkVersion % "provided"
 )
+
 ```
 ![image](https://user-images.githubusercontent.com/49156499/110214679-02b4b400-7ea6-11eb-9703-16477da0a1d8.png)
 
@@ -164,19 +168,32 @@ Pour ce faire:
 ### Test et débuggage
 
 ### Cluster spark (local)
-Télécharger le fichier [docker-compose.yaml](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/docker-compose.yaml). Il se trouve également dans le repo /get-started.  
-Sauvegarder ce fichier dans un répertoire sur lequel vous avez les droits (par exemple myworkspace/spark)  
-Aller dans ce répertoire et exécuter la commande
+Téléchargez sur votre ordinateur le projet [get-started](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/). 
+Aller dans le répertoire `get-started` et exécuter les commandes suivantes:
+#### Lancement du master
+Ouvrez un terminal et exécutez la commande suivante:
 ```
-docker-compose up
+docker-compose up spark-master
 ```
-Une fois le script lancé, allez à l'adresse http://localhost:8080/ pour voir l'état de votre cluster spark. Vous devez voir le master et un worker.  
-Pour augmenter le nombre de workers (scale up), il suffit de lancer la commande suivante:
-```
-docker-compose up --scale spark-worker=5
-```
-où `5` correspond au nombre de workers que vous souhaitez lancer. Vous pouvez varier ce nombre et voir l'impact sur le cluster.
+Une fois cette commande exécutée, vous pouvez lancer le dashboard de spark disponible à l'adresse http://localhost:8080/. Le dashboard affiche l'état du cluster y compris le nombre de workers (pour l'instant 0), le nombre d'applications en cours d'exécution et le nombre d'applications terminées.  
 
+#### Lancement des workers
+Ouvrez un autre terminal et exécutez la commande suivante:
+```
+docker-compose up spark-worker
+```
+Cette commande lance un worker et le connecte au cluster.  
+Maintenant si vous consultez le dashboard vous devrez voir un worker dispnible.  En cliquant sur la lien worker-XXXX vous pouvez consulter les détail du worker.  
+Il est possible d'augment le nombre de workers. Pour ce faire, il suffit d'éditer le fichier docker-compose.yml et modifier la ligne replicas: 1` en remplaçant le `1` par le nombre de workers désirés.  Il faut ensuite arrêter spark-worker avec la commande Ctl+C dans le terminal et relancer la commande.  
+
+#### Exécution du job (application wordcount)
+Ouvrez un autre terminal et exécutez la commande suivante:
+```
+docker-compose up spark-submit
+```
+Cette commande compile l'application (comportement par défaut) et l'exécute sur le cluster sark précédemment lancé.  
+Pour ce projet, vous otenez l'affiche des dataframes sur la console.  
+Le fichier compilé se retrouve également dans le répertoire `./target/scala-2.12`.  
 
 
 ### Packaging
