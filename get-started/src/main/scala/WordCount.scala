@@ -23,6 +23,8 @@ object WordCount {
       .appName(s"WordCount")
       .getOrCreate()
 
+    spark.sparkContext.setLogLevel("ERROR")
+
     for (i <- 0 to 1) {
       val filePath = "./ulysses.txt"
       logger.info(s"loading text from $filePath ...")

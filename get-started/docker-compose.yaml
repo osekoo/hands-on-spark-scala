@@ -6,6 +6,8 @@ services:
     container_name: spark-master
     build:
       context: ./
+    env_file:
+      - .env
     environment:
       - SPARK_MODE=master
     ports:
@@ -19,7 +21,7 @@ services:
     environment:
       - SPARK_MODE=worker
     deploy:
-      replicas: ${SPARK_WORKERS:-2 }
+      replicas: 1
     depends_on:
       - spark-master
 

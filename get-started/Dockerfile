@@ -3,9 +3,8 @@ FROM docker.io/ubuntu:22.04
 ENV SPARK_MODE="master" \
     SPARK_MASTER_URL="spark://spark-master:7077" \
     SPARK_WORKER_INSTANCES=1 \
-    SPARK_NO_DAEMONIZE=true
-
-ARG SPARK_VERSION=3.5.0
+    SPARK_NO_DAEMONIZE=true \
+    SPARK_VERSION=3.5.2
 
 RUN apt-get update && \
       apt-get -y install sudo
