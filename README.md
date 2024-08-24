@@ -45,8 +45,6 @@ Dans cette session, nous allons utiliser [Spark 3.0.2](https://spark.apache.org/
 3. ### Java (1.8)  
 A installer plus tard avec IntelliJ.  
 _Note_:
-
-
 Scala requiert une version de JDK 1.8 ou supérieure. La matrice de compatibilité entre Scala et JDK est disponible [ici](https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html).
    Pour des raisons pratiques, nous allons utiliser la version 1.8 dans ce lab. Veuillez noter que la version du JDK doit être en ligne avec celle supportée par [Spark](https://docs.qubole.com/en/latest/user-guide/engines/spark/spark-supportability.html).
 
@@ -60,15 +58,6 @@ Veuillez réaliser l'installation avant la session.
 
 ### Docker-compose
 Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04). Pour les autres (Mac et Windows), cet utilitaire est déjà inclus dans Docker Desktop (installé plus haut).
-
-### Spark
-Note: toutes les versions de spark sont disponibles [ici](https://archive.apache.org/dist/spark/).  
-Nous avons besoin d'installer Spark [3.0.2](https://archive.apache.org/dist/spark/spark-3.0.2/) en mode standalone afin de pouvoir utiliser la commande `spark-submit` pour envoyer nos jobs sur notre cluster local.  
-Veuillez suivre les liens ci-dessous pour installer Spark sur votre machine en fonction de votre OS:
-- [Windows](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-windows)
-- [Linux](http://www.xavierdupre.fr/app/sparkouille/helpsphinx/lectures/spark_install.html#installation-de-spark-sous-linux)
-- [Mac](https://notadatascientist.com/install-spark-on-macos/)
-
 
 ## Lab Session
 
