@@ -62,103 +62,21 @@ Les utilisateurs de Linux ont besoin d'installer [docker-compose](https://www.di
 ## Lab Session
 
 ### Mise en route
-1. Démarrez IntelliJ,
+1. Télécharger l'archive du projet disponible sur GitHub à l'adresse https://github.com/osekoo/hands-on-spark-scala/tree/develop  
+2. Extraire le contenu de l'archive
+3. Démarrer IntelliJ,
+4. Dans le menu `File` cliquer sur `Open`. Naviguez jusqu'au répertoire `get-started` et ouvrez-le.
 
-2. cliquez sur `New Project`
-   ![image](https://user-images.githubusercontent.com/49156499/110211719-2cff7500-7e98-11eb-8902-3225c7a02c7f.png)
-
-3. sélectionnez `Scala` (dans le panel de à gauche) et `sbt` (dans celui de droite)
-   ![image](https://user-images.githubusercontent.com/49156499/110212124-31c52880-7e9a-11eb-87f9-a57268f5fb71.png)
-
-4. à l'étape suivante:
-- donnez un nom à votre projet (`get-started`)
-- sélectionnez la version 1.8 de `JDK` si elle est installée sinon déroulez la liste et cliquez sur `Download JDK` (comme indiquer ci-dessous)
-  ![image](https://user-images.githubusercontent.com/49156499/110212389-6d142700-7e9b-11eb-9593-af827b9126b0.png)
-- sélectionnez une version 1.x de SBT (e.g 1.4.7)
-- sélectionnez la version 2.12.13 de Scala et cochez la case `Sources`
-  ![image](https://user-images.githubusercontent.com/49156499/110212481-d136eb00-7e9b-11eb-979f-8ef8bd566393.png)
-
-5. cliquez sur `Finish`
-
-6. vous devez obtenir une structure identique à celle de la figure ci-dessous
-   ![image](https://user-images.githubusercontent.com/49156499/110212536-0d6a4b80-7e9c-11eb-8bc3-0aa92a88f037.png)
-
-### Configuration
-
-- Ouvrez le fichier `build.sbt` qui se trouve dans le panel de gauche. Il doit contenir 3 lignes:
-```(scala)
-name := "get-started" // le nom de votre projet
-version := "0.1" // la version de votre application
-scalaVersion := "2.12.13" // la version de Scala (l'information la plus importante!)
-```
-
-- Nous allons compléter ce fichier avec les dépendances de Spark (version 3.0.2) qui se trouvent dans le [dépôt Maven](https://mvnrepository.com/artifact/org.apache.spark). Ce dépôt contient tous les modules et frameworks Spark
-
-- Pour notre use-case, nous allons utiliser les frameworks suivants:
-  - [`Spark Core`](https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.12/3.0.2) la libraire de base de Spark,
-  - [`Spark SQL`](https://mvnrepository.com/artifact/org.apache.spark/spark-sql_2.12/3.0.2) pour les requêtes SQL,
-  - [`Spark MLlib`](https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.12/3.0.2) pour le machine learning
-
-- Pour récupérer la bonne version d'un framework/module
-  - allez sur le dépôt du framework et cliquez sur la version désirée (dans notre cas 3.0.2),
-    ![image](https://user-images.githubusercontent.com/49156499/110213736-98017980-7ea1-11eb-89a4-363f1c294a66.png)
-  - ensuite cliquez sur l'onglet `SBT` et copier le contenu de la zone de texte  
-    ![image](https://user-images.githubusercontent.com/49156499/110213775-c1220a00-7ea1-11eb-88f8-4659443081d5.png)
-  - collez ce contenu dans le fichier `build.sbt` comme indiqué ci-dessous
-```(scala)
-libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % "3.0.2"
-)
-```
-
-Au final, votre fichier `build.sbt` doit ressembler à ceci:
-
-```(scala)
-name := sys.env.get("APP_NAME").getOrElse("wordcount-example") // the project's name
-version := sys.env.get("APP_VERSION").getOrElse("0.1") // the application version
-scalaVersion := sys.env.get("SCALA_FULL_VERSION").getOrElse("2.12.18") // version of Scala we want to use (this should be in line with the version of Spark framework)
-organization := "com.osekoo.dev"
-
-val sparkVersion = sys.env.get("SPARK_VERSION").getOrElse("3.5.2")
-
-libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % sparkVersion,
-  "org.apache.spark" %% "spark-sql" % sparkVersion,
-  "org.apache.spark" %% "spark-mllib" % sparkVersion % "provided"
-)
-
-```
-![image](https://user-images.githubusercontent.com/49156499/110214679-02b4b400-7ea6-11eb-9703-16477da0a1d8.png)
-
-Une fois ces dépendances ajoutées, IntelliJ va afficher un pop-up (en bas à gauche) avec 3 options, `Refresh` project, `Enable Auto-Import` et `Ignore`. Cliquez sur `Enable Auto-Import` de telle manière que IntelliJ télécharge automatiquement les dépendances à chaque mise-à-jour du fichier `build.sbt`.
-
-Si toutefois le pop-up n'a pas été affiché, cliquez sur le panel `sbt` d'IntelliJ et ensuite sur l'icône `reload`
-![image](https://user-images.githubusercontent.com/49156499/110214842-cf265980-7ea6-11eb-9d76-55de4c42f61a.png)
-![image](https://user-images.githubusercontent.com/49156499/110214858-dc434880-7ea6-11eb-8a6b-3b6c75df497c.png)
-
-IntelliJ affiche une erreur au cas où une dépendance n'a pas été trouvée.
-![image](https://user-images.githubusercontent.com/49156499/110214930-3b08c200-7ea7-11eb-91fd-6659ac5785fd.png)
-
+Le projet devra s'initiliser, SBT reconnu et les dépendances téléchargées.
 
 ### Implémentation
 Comme exemple, nous allons implémenter le programme `WordCount` en utilisant `Spark SQL`.  
-Pour ce faire:
-- Faites un clique-droit sur le répertoire `src/main/scala`,
-- donnez un nom pour votre fichier (e.g `WordCount`) et cliquez sur `New > Scala Class`
-- et faites un double-clique sur `Object` dans liste.
-- Remplacez le contenu du fichier que vous venez de créer (`WordCoubnt`) par [celui-ci](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/src/main/scala/WordCount.scala)
-- Téléchargez le fichier [`ulysses.txt`](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/ulysses.txt) et placez-le à la racine de votre projet.
-![image](https://user-images.githubusercontent.com/49156499/110215198-c6cf1e00-7ea8-11eb-8a3f-31df0a40b04b.png)
+Ouvrez le fichier `src\main\scala\WordCount.scala` pour prendre connaissance de l'implémentation.  
+Ouvrez également le fichier build.sbt et analysez le contenu.  
 
 
-
-### Compilation
-
-### Test et débuggage
-
-### Cluster spark (local)
-Téléchargez sur votre ordinateur le projet [get-started](https://raw.githubusercontent.com/osekoo/hands-on-spark-scala/develop/get-started/). 
-Aller dans le répertoire `get-started` et exécuter les commandes suivantes:
+### Compilation et exécution
+Dans cette section vous allez lancer sur votre machine locale le cluster spark en utilisant Docker.  
 #### Lancement du master
 Ouvrez un terminal et exécutez la commande suivante:
 ```
@@ -182,10 +100,10 @@ docker-compose up spark-submit
 ```
 Cette commande compile l'application (comportement par défaut) et l'exécute sur le cluster sark précédemment lancé.  
 Pour ce projet, vous otenez l'affiche des dataframes sur la console.  
-Le fichier compilé se retrouve également dans le répertoire `./target/scala-2.12`.  
+Le fichier compilé se retrouve également dans le répertoire `./target/scala-2.12`. Ce qui vous permet plus tard de le copier et de l'exéuter sur un serveur distant.
 
 
-### Packaging
+### Packaging (manuel, sans docker)
 IntelliJ reconnait automatiquement les projets Scala et adapte l'environnement en conséquence.  
 Vous trouverez en bas un onglet intitulé "sbt shell". Il suffit d'ouvrir cet onglet pour lancer le moteur SBT.  
 La commande `compile` permet de compiler votre application.  
@@ -193,17 +111,3 @@ La commande `package` permet de créer le package de l'application qui sera exé
 Elle produit un fichier `jar` qui est mis dans la racine du répertoire `target/scala-<scala_version>` et porte le nom `<project_name>_<scala_version>_<application_version>.jar`.
 Parfois il est nécessaire d'exécuter la commande `clean` avant de compiler ou de packager votre programme.
 
-### Exécution sur cluster Spark
-Une fois le package obtenu, à l'aide de la commande `spark-submit` nous allons exécuter notre application sur notre cluster local que nous avons lancé un peu plus haut.
-Si ce n'est pas encore le cas, c'est le moment de le lancer avec la commande `docker-compose up`.
-
-```(shell)
-spark-submit \
-  --master spark://localhost:7077 \
-  --deploy-mode client \
-  --executor-cores 4 \
-  --num-executors 1 \
-  --files ./ulysses.txt \
-  --class WordCount \
-  target/scala-2.12/get-started_2.12-0.1.jar
-```
