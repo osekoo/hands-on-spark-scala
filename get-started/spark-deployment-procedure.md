@@ -29,7 +29,7 @@ There are several methods to transfer your data files to the `workspace/data` di
 
 1. **From your local machine using SCP:**
    ```bash
-   scp -P 5022 <your_local_file> <user_name>@ssh.lamsade.dauphine.fr:~/workspace/data
+   scp -P 5022 -i <your_account_key> <your_local_file> <user_name>@ssh.lamsade.dauphine.fr:~/workspace/data
    ```
    This command securely copies your local file to the remote server’s `data` folder.
 
@@ -48,7 +48,7 @@ There are several methods to transfer your data files to the `workspace/data` di
 #### **5. Transfer the JAR File of Your Application**
 Copy your Spark application’s JAR file to the `workspace` directory on the remote server:
 ```bash
-scp -P 5022 <jar_location> <user_name>@ssh.lamsade.dauphine.fr:~/workspace
+scp -P 5022 -i <your_account_key> <jar_location> <user_name>@ssh.lamsade.dauphine.fr:~/workspace
 ```
 - **Note:** Ensure that your JAR file is correctly compiled and located in the right directory before transfer.
 
@@ -59,7 +59,7 @@ On your local machine, create a script called `spark-run.sh` to automate the Spa
 #!/bin/bash
 spark-submit \
     --deploy-mode "client" \
-    --master "local[*]" \  # Replace this with "yarn" or your specific cluster manager if applicable
+    --master "spark://vmhadoopmaster.cluster.lamsade.dauphine.fr:7077" \
     --executor-cores "4" \
     --executor-memory "2G" \
     --num-executors "2" \
@@ -77,7 +77,7 @@ spark-submit \
 #### **7. Transfer the Runner Script to the Remote Server**
 Once the script is created, copy it to the `workspace` directory on the remote server:
 ```bash
-scp -P 5022 <runner_location> <user_name>@ssh.lamsade.dauphine.fr:~/workspace
+scp -P 5022 -i <your_account_key> <runner_location> <user_name>@ssh.lamsade.dauphine.fr:~/workspace
 ```
 
 #### **8. Set the Execution Permission**
