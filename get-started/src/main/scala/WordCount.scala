@@ -3,7 +3,6 @@ import org.apache.spark.ml.Pipeline
 import org.apache.spark.ml.feature.{RegexTokenizer, StopWordsRemover}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.SaveMode
 
 import java.nio.charset.CodingErrorAction
 import scala.io.{Codec, Source}
@@ -69,13 +68,13 @@ object WordCount {
       logger.info("displaying the dataframe...")
       wordCountDf.show(100, truncate = false)
 
-      logger.info("saving the dataframe in csv format...")
-      wordCountDf.write.mode(SaveMode.Overwrite)
-        .csv("./tokens.csv")
-
-      logger.info("saving the dataframe in parquet format...")
-      wordCountDf.write.mode(SaveMode.Overwrite)
-        .parquet("./tokens.parquet")
+//      logger.info("saving the dataframe in csv format...")
+//      wordCountDf.write.mode(SaveMode.Overwrite)
+//        .csv("./tokens.csv")
+//
+//      logger.info("saving the dataframe in parquet format...")
+//      wordCountDf.write.mode(SaveMode.Overwrite)
+//        .parquet("./tokens.parquet")
     }
   }
 }
