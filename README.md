@@ -51,60 +51,61 @@ The project template generates the following files and folders:
 - **Example**:
   ```scala
       import org.apache.spark.sql.SparkSession
-      
-      object MainApp {
-        def main(args: Array[String]): Unit = {
-          val spark = SparkSession.builder
-            .appName("Word Count")
-            .getOrCreate() // create a Spark session
-      
-          spark.sparkContext.setLogLevel("ERROR")
-      
-          wordCount(spark) // call the wordCount function
-      
-          spark.stop() // stop the Spark session
-        }
-      
-        private def wordCount(spark: SparkSession): Unit = {
-          val fruits = Seq("apple", "banana", "carrot", "orange", "kiwi", "melon", "pineapple") // list of fruits
-          val colors = Seq("red", "yellow", "orange", "green", "brown", "blue", "purple") // list of colors
-          // pick between 5 and 15 colored fruits randomly as one item of a seq and repeat them 1000 times to create a dataset
-          val data = (1 to 1000).map(_ => (1 to scala.util.Random.nextInt(10) + 5).map(_ => s"${colors(scala.util.Random.nextInt(colors.length))} ${fruits(scala.util.Random.nextInt(fruits.length))}").mkString(", "))
-      
-          // print the first 10 items of the dataset
-          println("\n============================ Dataset ============================")
-          data.take(10).foreach(println)
-          println("=================================================================\n")
-      
-          // create an RDD from the dataset
-          val rdd = spark.sparkContext.parallelize(data)
-          val wordCounts = rdd
-            .flatMap(line => line.split("[ ,]")) // split each line into words
-            .filter(word => word.nonEmpty) // filter out empty words
-            .map(word => (word, 1)) // create a tuple of (word, 1)
-            .reduceByKey((a, b) => a + b) // sum the counts
-            .sortBy(a => a._2, ascending = false) // sort by count in descending order
-      
-          println("\n============================ Word count result ============================")
-          wordCounts.collect().foreach(println) // print the result
-          println("===========================================================================\n")
-      
-        }
-      }
+
+object MainApp {
+  def main(args: Array[String]): Unit = {
+    val spark = SparkSession.builder
+      .appName("Word Count")
+      .getOrCreate() // create a Spark session
+
+    spark.sparkContext.setLogLevel("ERROR")  // set the log level to ERROR (possible values: ALL, DEBUG, ERROR, FATAL, INFO, OFF, TRACE, WARN)
+
+    val size = args(0).toInt // number of lines to generate
+    wordCount(spark, size) // call the wordCount function
+
+    spark.stop() // stop the Spark session
+  }
+
+  private def wordCount(spark: SparkSession, size: Int): Unit = {
+    val fruits = Seq("apple", "banana", "carrot", "orange", "kiwi", "melon", "pineapple") // list of fruits
+    val colors = Seq("red", "yellow", "orange", "green", "brown", "blue", "purple") // list of colors
+    // pick between 5 and 15 colored fruits randomly as one item of a seq and repeat them 1000 times to create a dataset
+    val data = (1 to size).map(_ => (1 to scala.util.Random.nextInt(10) + 5).map(_ => s"${colors(scala.util.Random.nextInt(colors.length))} ${fruits(scala.util.Random.nextInt(fruits.length))}").mkString(", "))
+
+    // print the first 10 items of the dataset
+    println("\n============================ Dataset ============================")
+    data.take(10).foreach(println)
+    println("=================================================================\n")
+
+    // create an RDD from the dataset
+    val rdd = spark.sparkContext.parallelize(data)
+    val wordCounts = rdd
+      .flatMap(line => line.split("[ ,]")) // split each line into words
+      .filter(word => word.nonEmpty) // filter out empty words
+      .map(word => (word, 1)) // create a tuple of (word, 1)
+      .reduceByKey((a, b) => a + b) // sum the counts
+      .sortBy(a => a._2, ascending = false) // sort by count in descending order
+
+    println("\n============================ Word count result ============================")
+    wordCounts.collect().foreach(println) // print the result
+    println("===========================================================================\n")
+
+  }
+}
+
 
   ```
 
-#### **3. `run-app`**
-- **Purpose**: A script to start the Spark application and the local Spark cluster.
+#### **3. `spark-env`**
+- **Purpose**: A script to start the local Spark cluster.
 - **Content**: 
   - Starts Spark master and worker processes.
-  - Submits the compiled JAR file to Spark.
-- **Usage**: Run it to start the Spark application.
+- **Usage**: Run it to start the Spark cluster.
 
-#### **4. `spark-stop`**
-- **Purpose**: A script to stop the local Spark cluster.
+#### **4. `spark-submit-job`**
+- **Purpose**: A script to execute spark job.
 - **Content**:
-  - Stops all running Spark processes.
+  - Run it to submit spark job and execute it on the local cluster.
 
 
 
@@ -136,10 +137,15 @@ Run the following command to compile and package the project:
 sbt package
 ```
 
-#### **2. Start the Application**
-Run the application using the `run-app` script:
+#### **2.1 Start the Cluster**
+Start the cluster using the `spark-env` script:
 ```bash
-./run-app
+./spark-env
+```
+#### **2.2 Start the Application**
+From the Spark environement, run the application using the `spark-submit-job` script:
+```bash
+./spark-submit-job.sh
 ```
 
 #### **3. Monitor Spark Dashboard**
@@ -150,7 +156,7 @@ While the application is running, open the Spark UI to monitor job execution:
 #### **4. Stop the Spark Cluster**
 After completing the application run, stop the Spark cluster:
 ```bash
-./spark-stop
+exit
 ```
 
 ### **What is `spark-submit`?**
@@ -215,10 +221,10 @@ spark-submit [options] <application-jar> [application-arguments]
 ```bash
 spark-submit \
     --deploy-mode client \
-    --master "$SPARK_MASTER_URL" \
+    --master "spark://localhost:7077" \
     --executor-cores 4 \
     --executor-memory 2G \
-    --num-executors 1 \
+    --num-executors 4 \
     --class "MainApp" \
     "target/scala-2.12/wordcount_2.12-0.1.jar" \
 ```
@@ -250,7 +256,7 @@ spark-submit \
 
 
 ### **Integration with the Lab**
-In the lab, the `run-app` script internally uses `spark-submit` to start the Spark application. You can view or customize the `spark-submit` command in the script:
+In the lab, the `spark-submit-job` script internally uses `spark-submit` to start the Spark application. You can view or customize the `spark-submit` command in the script:
 
 This demonstrates how `spark-submit` is essential for running Spark applications in various environments, offering flexibility and control over resource allocation and execution.
 
@@ -268,8 +274,8 @@ This demonstrates how `spark-submit` is essential for running Spark applications
    - How can you optimize your Spark job based on Spark UI metrics?
 
 4. **Scripts**:
-   - What does the `run-app` script automate?
-   - Why is `spark-stop` important?
+   - What does the `spark-env` script automate?
+   - What does the `spark-submit-job` script automate?
 
 
 
