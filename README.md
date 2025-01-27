@@ -143,9 +143,9 @@ Start the cluster using the `spark-env` script:
 ./spark-env
 ```
 #### **2.2 Start the Application**
-From the Spark environement, run the application using the `spark-submit-job` script:
+From the Spark environement, run the application using the `run-app` script:
 ```bash
-./spark-submit-job.sh
+./run-app.sh
 ```
 
 #### **3. Monitor Spark Dashboard**
@@ -256,7 +256,7 @@ spark-submit \
 
 
 ### **Integration with the Lab**
-In the lab, the `spark-submit-job` script internally uses `spark-submit` to start the Spark application. You can view or customize the `spark-submit` command in the script:
+In the lab, the `run-app` script internally uses `spark-submit` to start the Spark application. You can view or customize the `spark-submit` command in the script:
 
 This demonstrates how `spark-submit` is essential for running Spark applications in various environments, offering flexibility and control over resource allocation and execution.
 
@@ -275,7 +275,7 @@ This demonstrates how `spark-submit` is essential for running Spark applications
 
 4. **Scripts**:
    - What does the `spark-env` script automate?
-   - What does the `spark-submit-job` script automate?
+   - What does the `run-app` script automate?
 
 
 
