@@ -49,8 +49,9 @@ The project template generates the following files and folders:
 - **Content**:
   - A basic Spark job that processes data.
 - **Example**:
-  ```scala
-      import org.apache.spark.sql.SparkSession
+  
+ ```scala
+import org.apache.spark.sql.SparkSession
 
 object MainApp {
   def main(args: Array[String]): Unit = {
@@ -92,9 +93,7 @@ object MainApp {
 
   }
 }
-
-
-  ```
+```
 
 #### **3. `spark-env`**
 - **Purpose**: A script to start the local Spark cluster.
