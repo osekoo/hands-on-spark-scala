@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\dev\teaching\labs\hands-on-spark-scala\word-count" />
-            <option value="C:\dev\teaching\labs\hands-on-spark-scala\word-count\project" />
+            <option value="C:\dev\teaching\labs\hands-on-spark-scala\lab" />
+            <option value="C:\dev\teaching\labs\hands-on-spark-scala\lab\project" />
           </set>
         </option>
         <option name="sbtVersion" value="1.10.7" />

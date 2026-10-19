@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-count/word-count.iml" filepath="$PROJECT_DIR$/.idea/modules/word-count/word-count.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-count/word-count.main.iml" filepath="$PROJECT_DIR$/.idea/modules/word-count/word-count.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-count/word-count.test.iml" filepath="$PROJECT_DIR$/.idea/modules/word-count/word-count.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lab/word-count.main~1.iml" filepath="$PROJECT_DIR$/.idea/modules/lab/word-count.main~1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lab/word-count.test~1.iml" filepath="$PROJECT_DIR$/.idea/modules/lab/word-count.test~1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/word-count/word-count.word-count-build.iml" filepath="$PROJECT_DIR$/.idea/modules/word-count/word-count.word-count-build.iml" />
     </modules>
   </component>

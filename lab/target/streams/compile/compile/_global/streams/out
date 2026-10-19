@@ -1,0 +1,181 @@
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:4:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval root = sys.env.getOrElse("COURSE_DATA_PATH", "./spark-course-data")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:5:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval orders = spark.read.parquet(s"$root/orders_partitioned")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:6:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval fragmentedOrders = spark.read.parquet(s"$root/orders_small_files")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:7:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval customers = spark.read.parquet(s"$root/customers")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:8:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval countries = spark.read.parquet(s"$root/countries")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:9:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval events = spark.read.parquet(s"$root/events")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:11:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"Orders partitions: ${orders.rdd.getNumPartitions}")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:12:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"Fragmented orders partitions: ${fragmentedOrders.rdd.getNumPartitions}")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:15:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval januaryPaid = orders[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:19:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mjanuaryPaid.explain("formatted")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:22:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0morders.groupBy("customer_id").count()[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:27:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval activeCountries = countries.filter(col("active") === true)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:28:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval normalJoin = orders.join(activeCountries, col("country") === col("country_code"))[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:29:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval broadcastJoin = orders.join(broadcast(activeCountries), col("country") === col("country_code"))[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:30:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mnormalJoin.explain("formatted")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:31:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mbroadcastJoin.explain("formatted")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:34:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval paidBase = orders[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:39:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mpaidBase.groupBy("country").agg(sum("amount").as("revenue")).count()[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:40:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mpaidBase.groupBy("customer_id").agg(sum("amount").as("revenue")).count()[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:41:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mpaidBase.unpersist()[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:44:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval compactedPath = s"$root/orders_compacted"[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:45:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mfragmentedOrders.coalesce(32).write.mode("overwrite").parquet(compactedPath)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:46:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval compacted = spark.read.parquet(compactedPath)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:47:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"Before compaction partitions: ${fragmentedOrders.rdd.getNumPartitions}")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:48:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"After compaction partitions: ${compacted.rdd.getNumPartitions}")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:51:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval pairs = orders.sample(0.01).select("customer_id", "amount").rdd[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:53:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval inefficient = pairs.groupByKey().mapValues(_.sum)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:54:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval preferred = pairs.reduceByKey(_ + _)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:55:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"groupByKey partitions: ${inefficient.getNumPartitions}")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\course_labs.scala:56:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"reduceByKey partitions: ${preferred.getNumPartitions}")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:7:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval outputRoot = sys.env.getOrElse("COURSE_DATA_PATH", "./spark-course-data")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:8:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval customerCount = sys.env.get("CUSTOMER_COUNT").map(_.toLong).getOrElse(200000L)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:9:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval orderCount = sys.env.get("ORDER_COUNT").map(_.toLong).getOrElse(2000000L)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:10:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval eventCount = sys.env.get("EVENT_COUNT").map(_.toLong).getOrElse(3000000L)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:11:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval normalPartitions = sys.env.get("NORMAL_PARTITIONS").map(_.toInt).getOrElse(32)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:12:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval smallFilePartitions = sys.env.get("SMALL_FILE_PARTITIONS").map(_.toInt).getOrElse(240)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:13:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval overwrite = sys.env.getOrElse("OVERWRITE", "true").toBoolean[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:14:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval mode = if (overwrite) SaveMode.Overwrite else SaveMode.ErrorIfExists[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:16:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mrequire(customerCount >= 100, "CUSTOMER_COUNT must be at least 100")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:17:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mrequire(orderCount >= 1000, "ORDER_COUNT must be at least 1,000")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:18:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mrequire(eventCount >= 1000, "EVENT_COUNT must be at least 1,000")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:19:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mrequire(normalPartitions > 0 && smallFilePartitions > 0, "Partition counts must be positive")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:21:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval countryCodes = array([0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:25:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval categories = array(lit("Books"), lit("Office"), lit("Electronics"), lit("Food"), lit("Home"))[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:26:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval eventTypes = array(lit("view"), lit("search"), lit("cart"), lit("purchase"), lit("support"))[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:28:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval countries = Seq([0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:41:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval customers = spark.range(1L, customerCount + 1L)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:55:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval orders = spark.range(orderCount)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:70:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval events = spark.range(eventCount)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:81:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mdef writeParquet(df: DataFrame, path: String, partitions: Int): Unit =[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:84:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"Generating course data in: $outputRoot")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:85:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln(s"customers=$customerCount, orders=$orderCount, events=$eventCount")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:87:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mcountries.coalesce(1).write.mode(mode).parquet(s"$outputRoot/countries")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:88:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mwriteParquet(customers, s"$outputRoot/customers", normalPartitions)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:91:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0morders.repartition(normalPartitions, col("order_date"))[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:95:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mwriteParquet(orders, s"$outputRoot/orders_small_files", smallFilePartitions)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:97:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mevents.repartition(normalPartitions, col("event_date"))[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:100:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln("Generation complete.")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:101:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mSeq("countries", "customers", "orders_partitioned", "orders_small_files", "events")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dev\teaching\labs\hands-on-spark-scala\lab\generate_course_data.scala:103:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mprintln("Hot key for skew exercises: customer_id/user_id = 42")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m60 errors found[0m
