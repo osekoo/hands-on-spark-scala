@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: com.github.wendykierp:JTransforms:3.1:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="com.github.wendykierp" artifactId="JTransforms" version="3.1" baseVersion="3.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/github/wendykierp/JTransforms/3.1/JTransforms-3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/github/wendykierp/JTransforms/3.1/JTransforms-3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

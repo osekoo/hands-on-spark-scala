@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: commons-io:commons-io:2.16.1:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="commons-io" artifactId="commons-io" version="2.16.1" baseVersion="2.16.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

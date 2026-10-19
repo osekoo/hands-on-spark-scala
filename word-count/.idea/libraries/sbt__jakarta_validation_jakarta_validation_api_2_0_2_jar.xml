@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: jakarta.validation:jakarta.validation-api:2.0.2:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="jakarta.validation" artifactId="jakarta.validation-api" version="2.0.2" baseVersion="2.0.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

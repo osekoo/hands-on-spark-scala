@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: jakarta.xml.bind:jakarta.xml.bind-api:2.3.2:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="jakarta.xml.bind" artifactId="jakarta.xml.bind-api" version="2.3.2" baseVersion="2.3.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

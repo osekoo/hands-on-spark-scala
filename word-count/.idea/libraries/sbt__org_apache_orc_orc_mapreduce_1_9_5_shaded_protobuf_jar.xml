@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="sbt: org.apache.orc:orc-mapreduce:1.9.5:shaded-protobuf:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="org.apache.orc" artifactId="orc-mapreduce" version="1.9.5" baseVersion="1.9.5" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/apache/orc/orc-mapreduce/1.9.5/orc-mapreduce-1.9.5-shaded-protobuf.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

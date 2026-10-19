@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: org.apache.spark:spark-network-shuffle_2.12:3.5.4:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="org.apache.spark" artifactId="spark-network-shuffle_2.12" version="3.5.4" baseVersion="3.5.4" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-network-shuffle_2.12/3.5.4/spark-network-shuffle_2.12-3.5.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-network-shuffle_2.12/3.5.4/spark-network-shuffle_2.12-3.5.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

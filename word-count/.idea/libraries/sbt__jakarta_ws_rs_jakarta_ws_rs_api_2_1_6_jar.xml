@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: jakarta.ws.rs:jakarta.ws.rs-api:2.1.6:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="jakarta.ws.rs" artifactId="jakarta.ws.rs-api" version="2.1.6" baseVersion="2.1.6" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/jakarta/ws/rs/jakarta.ws.rs-api/2.1.6/jakarta.ws.rs-api-2.1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/jakarta/ws/rs/jakarta.ws.rs-api/2.1.6/jakarta.ws.rs-api-2.1.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

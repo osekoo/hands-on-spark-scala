@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: com.esotericsoftware:kryo-shaded:4.0.2:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="com.esotericsoftware" artifactId="kryo-shaded" version="4.0.2" baseVersion="4.0.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/esotericsoftware/kryo-shaded/4.0.2/kryo-shaded-4.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/esotericsoftware/kryo-shaded/4.0.2/kryo-shaded-4.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

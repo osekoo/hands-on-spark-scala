@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: joda-time:joda-time:2.12.5:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="joda-time" artifactId="joda-time" version="2.12.5" baseVersion="2.12.5" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/joda-time/joda-time/2.12.5/joda-time-2.12.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/joda-time/joda-time/2.12.5/joda-time-2.12.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: com.google.code.gson:gson:2.10.1:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="com.google.code.gson" artifactId="gson" version="2.10.1" baseVersion="2.10.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
