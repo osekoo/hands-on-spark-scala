@@ -162,7 +162,7 @@ exit
 
 `spark-submit` is a command-line tool provided by Apache Spark to submit and run Spark applications on various Spark-supported cluster managers (e.g., standalone, YARN, Mesos, Kubernetes) or locally on your machine.
 
-It acts as the entry point to execute your compiled Spark application JAR, passing it configuration parameters, application-specific arguments, and resource details.
+It acts as the entry point to execute your compiled Spark application JAR, passing its configuration parameters, application-specific arguments, and resource details.
 
 
 
